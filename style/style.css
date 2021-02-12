@@ -28,6 +28,7 @@ ul li a i {
 ul li a i:hover {
   border-bottom: 1px solid red;
   padding-bottom: 10px;
+  transition: 0.5s ease-out;
 }
 #nav-container ul li {
   padding: 1rem 0.5rem 0.8rem 0.5rem;
