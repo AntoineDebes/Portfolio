@@ -26,11 +26,6 @@ header {
   justify-content: end;
   width: 100%;
 }
-ul {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-}
 ul li a i {
   color: white;
   font-size: 2rem;
@@ -46,7 +41,7 @@ ul li a i:hover {
   width: 100%;
 }
 #nav-container ul li {
-  padding: 1.3rem 1% 0.8rem 1%;
+  padding: 2rem 1% 0.8rem 1%;
   justify-content: center;
   align-items: center;
   display: inline-block;
@@ -93,6 +88,15 @@ main {
 h2 {
   color: white;
 }
+@media (max-width: 900px) {
+  #nav-container ul {
+    align-items: flex-end;
+    flex-direction: column;
+  }
+  .title {
+    width: 70%;
+  }
+}
 @media (max-width: 550px) {
   #wrapper {
     flex-direction: column-reverse;
@@ -107,6 +111,7 @@ h2 {
   }
   #nav-container ul {
     justify-content: center;
+    flex-direction: row;
   }
   #nav-container ul li {
     padding: 1.3rem 2% 0.8rem 2%;
