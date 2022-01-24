@@ -1,0 +1,64 @@
+@import "../css/ultis.scss";
+
+.container__picture__listening {
+  position: absolute;
+  top: 76%;
+  right: -25%;
+  border-radius: 50%;
+  transform: translate(-81%, -50%);
+  z-index: 99;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+
+  &__spotify-container {
+    width: 100%;
+    position: relative;
+    height: 100%;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -3px;
+      height: 45px;
+      width: 45px;
+      border-radius: 50%;
+      background-color: red;
+    }
+    &--inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    &__gif {
+      @extend .img-fl-c;
+    }
+
+    &:hover &__content {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &__content {
+      position: absolute;
+      visibility: hidden;
+      overflow: hidden;
+      border-radius: 16px 4px 4px 4px;
+      transition: 0.4s;
+      opacity: 0;
+      top: 97%;
+      transform: translateY(-50%);
+      left: 22%;
+      width: 250px;
+      height: 75px;
+      background-color: red;
+      display: flex;
+      z-index: 5;
+    }
+  }
+}

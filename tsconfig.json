@@ -14,5 +14,5 @@
       "noUnusedParameters": true,
       "removeComments": false
     },
-    "include": ["./src/**/*"]
+    "include": ["./src/**/*", "config.d.ts"]
   }

@@ -1,0 +1,25 @@
+.f-c {
+  display: flex;
+  align-items: center;
+}
+
+.f-b-c {
+  @extend .f-c;
+  justify-content: space-between;
+}
+
+.f-l-b-c {
+  @extend .f-b-c;
+  flex-direction: column;
+}
+
+// Image section
+
+.img-fl-c {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
