@@ -3,10 +3,11 @@ import axios from "axios"
 import "./SpotifyListening.scss"
 import { SpotifyListeningModel } from "../models/SpotifyListeningModel"
 import MusicIcon from "../images/music-icon.gif"
+import useInterval from "../hooks/useInterval"
 
 const initialState = {
   isPlayingOpen: false,
-  isPlaying: false, // Don't forget to change it to false
+  isPlaying: false,
   name: undefined,
   images: undefined,
   artists: [
@@ -14,51 +15,45 @@ const initialState = {
       name: undefined,
     },
   ],
-  spotify: undefined,
 }
 
 const SpotifyListening = () => {
+  const fetchUserPlayingInterval = useInterval(fetchUserPlaying, 10000)
   const [
-    { isPlayingOpen, isPlaying, name, artists, images, spotify },
+    { isPlayingOpen, isPlaying, name, artists, images },
     setIsUserPlaying,
   ] = useState(initialState)
 
   useEffect(() => {
-    const fetchUserPlaying = async () => {
-      try {
-        const results = await axios.get<SpotifyListeningModel, any>(
-          "https://wpshortcuts.mystagingwebsite.com/wp-json/spotify/v1/playing/5"
-        )
-        const {
-          isPlaying,
-          data: {
-            name,
-            artists,
-            album: { images },
-            external_urls: { spotify },
-          },
-        } = results.data
-        console.log("results: ", results)
-        console.log("image: ", images)
-
-        console.log("data: ", isPlaying, name, artists, images[2].url)
-
-        setIsUserPlaying(prevState => ({
-          ...prevState,
-          isPlaying,
-          name,
-          images: images[2].url,
-          artists,
-          spotify,
-        }))
-      } catch (e) {
-        console.error(e)
-        setIsUserPlaying(initialState)
-      }
-    }
     fetchUserPlaying()
+    fetchUserPlayingInterval
   }, [])
 
+  async function fetchUserPlaying() {
+    try {
+      const results = await axios.get<SpotifyListeningModel, any>(
+        "https://wpshortcuts.mystagingwebsite.com/wp-json/spotify/v1/playing/5"
+      )
+      const {
+        isPlaying,
+        data: {
+          name,
+          artists,
+          album: { images },
+        },
+      } = results.data
+      setIsUserPlaying(prevState => ({
+        ...prevState,
+        isPlaying,
+        name,
+        images: images[2].url,
+        artists,
+      }))
+    } catch (e) {
+      console.error(e)
+      setIsUserPlaying(initialState)
+    }
+  }
   return isPlaying ? (
     <div className="container__picture__listening">
       {!isPlayingOpen ? (
@@ -72,9 +67,25 @@ const SpotifyListening = () => {
               />
             </div>
             <div className="container__picture__listening__spotify-container__content">
-              <img src={images} alt="Spotify Artist Album Cover" />
-              <div>{name}</div>
-              <div>{artists[0]?.name}</div>
+              <div className="container__picture__listening__spotify-container__content__img-container">
+                <img src={images} alt="Spotify Artist Album Cover" />
+              </div>
+              <div>
+                <div
+                  title={name}
+                  className="container__picture__listening__spotify-container__content__container__song-name"
+                >
+                  <b>Song: </b>
+                  {name}
+                </div>
+                <div
+                  title={artists[0]?.name}
+                  className="container__picture__listening__spotify-container__content__container__song-name"
+                >
+                  <b>Artist: </b>
+                  <span>{artists[0]?.name}</span>
+                </div>
+              </div>
             </div>
           </div>
         </>

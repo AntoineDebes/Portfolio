@@ -1,6 +1,7 @@
 @import "../css/ultis.scss";
 
 .container__picture__listening {
+  display: none;
   position: absolute;
   top: 76%;
   right: -25%;
@@ -19,12 +20,12 @@
     &::after {
       content: "";
       position: absolute;
-      top: -2px;
+      top: -3px;
       left: -3px;
-      height: 45px;
-      width: 45px;
+      height: 46px;
+      width: 46px;
       border-radius: 50%;
-      background-color: red;
+      animation: musicIconFrame 2s infinite alternate-reverse;
     }
     &--inner {
       position: relative;
@@ -37,6 +38,7 @@
 
     &__gif {
       @extend .img-fl-c;
+      background-color: $primary-color;
     }
 
     &:hover &__content {
@@ -48,17 +50,56 @@
       position: absolute;
       visibility: hidden;
       overflow: hidden;
+      color: #68e3a8;
       border-radius: 16px 4px 4px 4px;
       transition: 0.4s;
       opacity: 0;
-      top: 97%;
+      top: 139%;
+      -webkit-transform: translateY(-50%);
       transform: translateY(-50%);
-      left: 22%;
-      width: 250px;
-      height: 75px;
-      background-color: red;
+      left: 47%;
+      background-color: #0000005e;
       display: flex;
+      max-width: 300px;
+      width: fit-content;
+      padding: 0.5em 0.5em 0.5em 0;
+      gap: 0.4em;
       z-index: 5;
+
+      &__img-container {
+        width: 3.45em;
+        position: relative;
+        border-radius: 0 6px 6px 6px;
+        overflow: hidden;
+        & > img {
+          @extend .img-fl-c;
+          object-fit: cover;
+        }
+      }
+
+      &__container {
+        &__song-name {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          width: 100%;
+          max-width: 300px;
+        }
+      }
     }
+  }
+}
+@keyframes musicIconFrame {
+  0% {
+    background-color: #68e3a8;
+  }
+  100% {
+    background-color: #236b48;
+  }
+}
+
+@media (min-width: 740px) {
+  .container__picture__listening {
+    display: block;
   }
 }
