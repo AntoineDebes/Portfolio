@@ -1,9 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Antoine Debes`,
+    description: `I am a Freelancing Full-stack Web Developer that delivers the best services under the best practices`,
+    author: `Antoine Debes`,
+    siteUrl: `https://antoinedebes.codes`,
+    keywords: `blog, web develepment, web developer, Full-stack web developer, Fullstack web developer, front-end web developer, frontend web developer, back-end web developer, backend web developer, Software engineer, DevOps, Dev-Ops,
+    css, html, css3, htm5, tailwindcss, tailwind, bootstrap, javascript, es6, best practice, SEO, Nodejs, Typescript, Reactjs, Gatsbyjs, Nextjs, MongoDB, Mysql, Laravel, WordPress, Postgresql, Typeorm, mikro-orm, jamstack, MERN, MARN, PHP`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

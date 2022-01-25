@@ -25,6 +25,7 @@
     "sass": "^1.47.0"
   },
   "devDependencies": {
+    "@types/react-helmet": "^6.1.5",
     "prettier": "^2.5.1"
   },
   "keywords": [

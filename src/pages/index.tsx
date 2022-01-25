@@ -9,6 +9,7 @@ import "../css/gaby.css"
 import FlameImage from "../images/flame.gif"
 import BatataImage from "../images/batata.webp"
 import SpotifyListening from "../components/SpotifyListening"
+import Helmet from "react-helmet"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -25,12 +26,37 @@ const IndexPage = () => {
           )
         }
       }
+      site {
+        siteMetadata {
+          author
+          description
+          keywords
+          siteUrl
+          title
+        }
+      }
     }
   `)
 
   const profileImage: any = getImage(data.profileImage)
   return (
     <>
+      <Helmet>
+        <meta name="description" content={data.site.siteMetadata.description} />
+        <meta name="keywords" content={data.site.siteMetadata.keywords} />
+        <meta name="author" content={data.site.siteMetadata.title} />
+
+        <meta property="og:title" content={data.site.siteMetadata.title} />
+        <meta
+          property="og:description"
+          content={data.site.siteMetadata.description}
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="og:url" content={data.site.siteMetadata.siteUrl} />
+        <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
+        <title>{data.site.siteMetadata.title}</title>
+      </Helmet>
       <div className="wrapper" id="wrapper">
         <div className="wrapper__container">
           <div className="wrapper__container__picture__container">
