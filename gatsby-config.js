@@ -8,6 +8,20 @@ module.exports = {
     css, html, css3, htm5, tailwindcss, tailwind, bootstrap, javascript, es6, best practice, SEO, Nodejs, Typescript, Reactjs, Gatsbyjs, Nextjs, MongoDB, Mysql, Laravel, WordPress, Postgresql, Typeorm, mikro-orm, jamstack, MERN, MARN, PHP`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          "G-JF1L2Q6YLY", // Google Analytics / GA
+        ],
+        // This object is used for configuration specific to this plugin
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: true,
+        },
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
