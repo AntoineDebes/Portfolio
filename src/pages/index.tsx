@@ -6,6 +6,8 @@ import "../css/normalize.css"
 import ListIcon from "../components/ListIcon"
 import "../css/icomoon.css"
 import "../css/gaby.css"
+import FlameImage from "../images/flame.gif"
+import BatataImage from "../images/batata.webp"
 import SpotifyListening from "../components/SpotifyListening"
 
 const IndexPage = () => {
@@ -168,13 +170,13 @@ const IndexPage = () => {
               >
                 <img
                   className="wrapper__container__webring__arrows__container__harra"
-                  src="../images/flame.gif"
+                  src={FlameImage}
                   alt="Flame"
                 />
                 <img
                   className="wrapper__container__webring__arrows__container__batata"
                   alt="Potato"
-                  src="../images/batata.webp"
+                  src={BatataImage}
                 />
               </a>
               <a
