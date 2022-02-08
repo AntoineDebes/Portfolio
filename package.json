@@ -19,6 +19,10 @@
     "gatsby-plugin-sharp": "^4.4.0",
     "gatsby-source-filesystem": "^4.4.0",
     "gatsby-transformer-sharp": "^4.4.0",
+    "node-sass": "^6.0.1",
+    "postcss": "^8.4.6",
+    "postcss-import": "^14.0.2",
+    "postcss-preset-env": "^7.3.1",
     "prop-types": "^15.8.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -48,5 +52,9 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  },
+  "browserslist": [
+    ">0.25%",
+    "not dead"
+  ]
 }

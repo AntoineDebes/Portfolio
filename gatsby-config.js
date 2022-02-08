@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Antoine Debes`,
-    description: `I am a Freelancing Full-stack Web Developer that delivers the best services under the best practices`,
+    description: `I am a Freelancing Full-stack Web Developer who delivers the best services using the best practices`,
     author: `Antoine Debes`,
     siteUrl: `https://antoinedebes.codes`,
     keywords: `blog, web develepment, web developer, Full-stack web developer, Fullstack web developer, front-end web developer, frontend web developer, back-end web developer, backend web developer, Software engineer, DevOps, Dev-Ops,
@@ -23,7 +23,17 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
+    {
+      resolve: "gatsby-plugin-sass",
+      options: {
+        postCssPlugins: [
+          require("postcss-import"),
+          require("postcss-preset-env")({
+            stage: 0,
+          }),
+        ],
+      },
+    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
