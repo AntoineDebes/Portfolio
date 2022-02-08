@@ -13,7 +13,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100%;
+  width: 155px;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
