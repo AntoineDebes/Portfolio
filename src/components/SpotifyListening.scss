@@ -55,7 +55,6 @@
       transition: 0.4s;
       opacity: 0;
       top: 139%;
-      -webkit-transform: translateY(-50%);
       transform: translateY(-50%);
       left: 47%;
       background-color: #0000005e;
@@ -71,13 +70,15 @@
         position: relative;
         border-radius: 0 6px 6px 6px;
         overflow: hidden;
-        & > img {
+        &__img {
           @extend .img-fl-c;
           object-fit: cover;
         }
       }
 
       &__container {
+        width: 100%;
+        max-width: 13.9em;
         &__song-name {
           text-overflow: ellipsis;
           white-space: nowrap;

@@ -68,9 +68,13 @@ const SpotifyListening = () => {
             </div>
             <div className="container__picture__listening__spotify-container__content">
               <div className="container__picture__listening__spotify-container__content__img-container">
-                <img src={images} alt="Spotify Artist Album Cover" />
+                <img
+                  className="container__picture__listening__spotify-container__content__img-container__img"
+                  src={images}
+                  alt="Spotify Artist Album Cover"
+                />
               </div>
-              <div>
+              <div className="container__picture__listening__spotify-container__content__container">
                 <div
                   title={name}
                   className="container__picture__listening__spotify-container__content__container__song-name"
