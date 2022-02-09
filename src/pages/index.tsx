@@ -10,8 +10,10 @@ import FlameImage from "../images/flame.gif"
 import BatataImage from "../images/batata.webp"
 import SpotifyListening from "../components/SpotifyListening"
 import Helmet from "react-helmet"
+import { useIsSpotifyInfo } from "../context/spotify"
 
 const IndexPage = () => {
+  const { isSpotifyInfo } = useIsSpotifyInfo()
   const data = useStaticQuery(graphql`
     query ProfileImageQuery {
       profileImage: file(relativePath: { eq: "new-profile-pic.webp" }) {
@@ -60,14 +62,19 @@ const IndexPage = () => {
       <div className="wrapper" id="wrapper">
         <div className="wrapper__container">
           <div className="wrapper__container__picture__container">
-            <div className="wrapper__container__picture">
-              <GatsbyImage
-                image={profileImage}
-                className="wrapper__container__picture__img"
-                alt="Antoine's face photo"
-                loading="eager"
-              />
-            </div>
+            {isSpotifyInfo ? (
+              <>asda</>
+            ) : (
+              <div className="wrapper__container__picture">
+                <GatsbyImage
+                  image={profileImage}
+                  className="wrapper__container__picture__img"
+                  alt="Antoine's face photo"
+                  loading="eager"
+                />
+              </div>
+            )}
+
             <div className="testingWithgaby">
               <div className="card"></div>
             </div>

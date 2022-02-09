@@ -1,7 +1,7 @@
 @import "../css/ultis.scss";
 
 .container__picture__listening {
-  display: none;
+  display: block;
   position: absolute;
   top: 76%;
   right: -25%;
@@ -39,11 +39,6 @@
     &__gif {
       @extend .img-fl-c;
       background-color: $primary-color;
-    }
-
-    &:hover &__content {
-      visibility: visible;
-      opacity: 1;
     }
 
     &__content {
@@ -100,7 +95,10 @@
 }
 
 @media (min-width: 740px) {
-  .container__picture__listening {
-    display: block;
+  .container__picture__listening__spotify-container {
+    &:hover &__content {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 }

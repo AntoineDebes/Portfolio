@@ -4,6 +4,7 @@ import "./SpotifyListening.scss"
 import { SpotifyListeningModel } from "../models/SpotifyListeningModel"
 import MusicIcon from "../images/music-icon.gif"
 import useInterval from "../hooks/useInterval"
+import { useIsSpotifyInfo } from "../context/spotify"
 
 const initialState = {
   isPlayingOpen: false,
@@ -18,6 +19,7 @@ const initialState = {
 }
 
 const SpotifyListening = () => {
+  const { isSpotifyInfo, setIsSpotifyInfo } = useIsSpotifyInfo()
   const fetchUserPlayingInterval = useInterval(fetchUserPlaying, 10000)
   const [
     { isPlayingOpen, isPlaying, name, artists, images },
@@ -56,46 +58,43 @@ const SpotifyListening = () => {
   }
   return isPlaying ? (
     <div className="container__picture__listening">
-      {!isPlayingOpen ? (
-        <>
-          <div className="container__picture__listening__spotify-container">
-            <div className="container__picture__listening__spotify-container--inner">
-              <img
-                src={MusicIcon}
-                alt="Spotify gif in green"
-                className="container__picture__listening__spotify-container__gif"
-              />
+      <div className="container__picture__listening__spotify-container">
+        <div
+          className="container__picture__listening__spotify-container--inner"
+          onClick={() => setIsSpotifyInfo(true)}
+        >
+          <img
+            src={MusicIcon}
+            alt="Spotify gif in green"
+            className="container__picture__listening__spotify-container__gif"
+          />
+        </div>
+        <div className="container__picture__listening__spotify-container__content">
+          <div className="container__picture__listening__spotify-container__content__img-container">
+            <img
+              className="container__picture__listening__spotify-container__content__img-container__img"
+              src={images}
+              alt="Spotify Artist Album Cover"
+            />
+          </div>
+          <div className="container__picture__listening__spotify-container__content__container">
+            <div
+              title={name}
+              className="container__picture__listening__spotify-container__content__container__song-name"
+            >
+              <b>Song: </b>
+              {name}
             </div>
-            <div className="container__picture__listening__spotify-container__content">
-              <div className="container__picture__listening__spotify-container__content__img-container">
-                <img
-                  className="container__picture__listening__spotify-container__content__img-container__img"
-                  src={images}
-                  alt="Spotify Artist Album Cover"
-                />
-              </div>
-              <div className="container__picture__listening__spotify-container__content__container">
-                <div
-                  title={name}
-                  className="container__picture__listening__spotify-container__content__container__song-name"
-                >
-                  <b>Song: </b>
-                  {name}
-                </div>
-                <div
-                  title={artists[0]?.name}
-                  className="container__picture__listening__spotify-container__content__container__song-name"
-                >
-                  <b>Artist: </b>
-                  <span>{artists[0]?.name}</span>
-                </div>
-              </div>
+            <div
+              title={artists[0]?.name}
+              className="container__picture__listening__spotify-container__content__container__song-name"
+            >
+              <b>Artist: </b>
+              <span>{artists[0]?.name}</span>
             </div>
           </div>
-        </>
-      ) : (
-        <div></div>
-      )}
+        </div>
+      </div>
     </div>
   ) : null
 }
