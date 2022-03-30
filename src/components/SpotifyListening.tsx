@@ -1,67 +1,31 @@
-import React, { useState, useEffect } from "react"
-import axios from "axios"
+import React from "react"
 import "./SpotifyListening.scss"
-import { SpotifyListeningModel } from "../models/SpotifyListeningModel"
 import MusicIcon from "../images/music-icon.gif"
-import useInterval from "../hooks/useInterval"
 import { useIsSpotifyInfo } from "../context/spotify"
 
-const initialState = {
-  isPlayingOpen: false,
-  isPlaying: false,
-  name: undefined,
-  images: undefined,
-  artists: [
-    {
-      name: undefined,
-    },
-  ],
-}
-
 const SpotifyListening = () => {
-  const { isSpotifyInfo, setIsSpotifyInfo } = useIsSpotifyInfo()
-  const fetchUserPlayingInterval = useInterval(fetchUserPlaying, 10000)
-  const [
-    { isPlayingOpen, isPlaying, name, artists, images },
-    setIsUserPlaying,
-  ] = useState(initialState)
+  const {
+    userSpotifyListeningInfo: {
+      artists,
+      images,
+      isPlaying,
+      isPlayingOpen,
+      name,
+    },
+    setUserSpotifyListeningInfo,
+  } = useIsSpotifyInfo()
 
-  useEffect(() => {
-    fetchUserPlaying()
-    fetchUserPlayingInterval
-  }, [])
-
-  async function fetchUserPlaying() {
-    try {
-      const results = await axios.get<SpotifyListeningModel, any>(
-        "https://wpshortcuts.mystagingwebsite.com/wp-json/spotify/v1/playing/5"
-      )
-      const {
-        isPlaying,
-        data: {
-          name,
-          artists,
-          album: { images },
-        },
-      } = results.data
-      setIsUserPlaying(prevState => ({
-        ...prevState,
-        isPlaying,
-        name,
-        images: images[2].url,
-        artists,
-      }))
-    } catch (e) {
-      console.error(e)
-      setIsUserPlaying(initialState)
-    }
-  }
   return isPlaying ? (
     <div className="container__picture__listening">
       <div className="container__picture__listening__spotify-container">
         <div
           className="container__picture__listening__spotify-container--inner"
-          onClick={() => setIsSpotifyInfo(true)}
+          onClick={() =>
+            setUserSpotifyListeningInfo((prevState: any) => ({
+              ...prevState,
+              isPlayingOpen: true,
+            }))
+          }
         >
           <img
             src={MusicIcon}
