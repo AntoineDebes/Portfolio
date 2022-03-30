@@ -206,10 +206,10 @@ const IndexPage = () => {
                 />
               </a>
               <a
-                title="Visit gabykaram.com"
-                aria-label="visit Gaby Karam DOT COM"
+                title="Visit georgesdib.io"
+                aria-label="visit Georges Dib DOT COM"
                 className="wrapper__container__webring__arrows__link"
-                href="https://gabykaram.com"
+                href="https://georgesdib.io"
               >
                 <i
                   role="img"
