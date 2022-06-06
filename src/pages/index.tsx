@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import "./index.scss"
@@ -11,7 +11,7 @@ import BatataImage from "../images/batata.webp"
 import SpotifyListening from "../components/SpotifyListening"
 import Helmet from "react-helmet"
 
-const IndexPage = () => {
+const IndexPage: FC = () => {
   const data = useStaticQuery(graphql`
     query ProfileImageQuery {
       profileImage: file(relativePath: { eq: "new-profile-pic.webp" }) {
@@ -54,7 +54,12 @@ const IndexPage = () => {
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
         <meta name="og:url" content={data.site.siteMetadata.siteUrl} />
-        <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
+        <link
+          as="url"
+          crossOrigin="anonymous"
+          rel="canonical"
+          href={data.site.siteMetadata.siteUrl}
+        />
         <title>{data.site.siteMetadata.title}</title>
       </Helmet>
       <div className="wrapper" id="wrapper">

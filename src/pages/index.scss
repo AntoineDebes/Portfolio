@@ -19,7 +19,7 @@ a:focus {
   height: 100%;
   font-family: "Inter", sans-serif;
   line-height: 1.45;
-  background-image: url(/images/circuit-board.svg);
+  background-image: url(../images/circuit-board.svg);
 
   &__container {
     min-height: 94vh;
@@ -128,6 +128,9 @@ a:focus {
           &__icon {
             color: $white-color;
             font-size: 1.5em;
+            &:hover {
+              color: $primary-color
+            }
           }
         }
 

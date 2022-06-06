@@ -34,23 +34,15 @@ const SpotifyListening = () => {
       const results = await axios.get<SpotifyListeningModel, any>(
         "https://wpshortcuts.mystagingwebsite.com/wp-json/spotify/v1/playing/5"
       )
-      const {
-        isPlaying,
-        data: {
-          name,
-          artists,
-          album: { images },
-        },
-      } = results.data
+      const response = results.data
       setIsUserPlaying(prevState => ({
         ...prevState,
-        isPlaying,
-        name,
-        images: images[2].url,
-        artists,
+        isPlaying: response?.isPlaying,
+        name: response.data?.name,
+        images: response.data?.album?.images[2].url,
+        artists: response.data?.artists,
       }))
     } catch (e) {
-      console.error(e)
       setIsUserPlaying(initialState)
     }
   }
