@@ -44,10 +44,14 @@ const ANIMATION_CONFIG = {
   COPY_HEADROOM: 2,
 };
 
-const toCssLength = (value) =>
+const toCssLength = (value: string | number | undefined): string | undefined =>
   typeof value === "number" ? `${value}px` : value ?? undefined;
 
-const useResizeObserver = (callback, elements, dependencies) => {
+const useResizeObserver = (
+  callback: () => void,
+  elements: React.RefObject<HTMLElement | null>[],
+  dependencies: unknown[]
+) => {
   useEffect(() => {
     if (!window.ResizeObserver) {
       const handleResize = () => callback();
@@ -72,7 +76,11 @@ const useResizeObserver = (callback, elements, dependencies) => {
   }, dependencies);
 };
 
-const useImageLoader = (seqRef, onLoad, dependencies) => {
+const useImageLoader = (
+  seqRef: React.RefObject<HTMLElement | null>,
+  onLoad: () => void,
+  dependencies: unknown[]
+) => {
   useEffect(() => {
     const images = seqRef.current?.querySelectorAll("img") ?? [];
 
@@ -110,14 +118,14 @@ const useImageLoader = (seqRef, onLoad, dependencies) => {
 };
 
 const useAnimationLoop = (
-  trackRef,
-  targetVelocity,
-  seqWidth,
-  isHovered,
-  pauseOnHover
+  trackRef: React.RefObject<HTMLElement | null>,
+  targetVelocity: number,
+  seqWidth: number,
+  isHovered: boolean,
+  pauseOnHover: boolean
 ) => {
-  const rafRef = useRef(null);
-  const lastTimestampRef = useRef(null);
+  const rafRef = useRef<number | null>(null);
+  const lastTimestampRef = useRef<number | null>(null);
   const offsetRef = useRef(0);
   const velocityRef = useRef(0);
 
@@ -131,7 +139,7 @@ const useAnimationLoop = (
       track.style.transform = `translate3d(${-offsetRef.current}px, 0, 0)`;
     }
 
-    const animate = (timestamp) => {
+    const animate = (timestamp: number) => {
       if (lastTimestampRef.current === null) {
         lastTimestampRef.current = timestamp;
       }
@@ -186,9 +194,9 @@ export const LogoLoop = memo<LogoLoopProps>(
     className,
     style,
   }) => {
-    const containerRef = useRef(null);
-    const trackRef = useRef(null);
-    const seqRef = useRef(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const trackRef = useRef<HTMLDivElement>(null);
+    const seqRef = useRef<HTMLUListElement>(null);
 
     const [seqWidth, setSeqWidth] = useState(0);
     const [copyCount, setCopyCount] = useState(ANIMATION_CONFIG.MIN_COPIES);
@@ -261,7 +269,7 @@ export const LogoLoop = memo<LogoLoopProps>(
       if (pauseOnHover) setIsHovered(false);
     }, [pauseOnHover]);
 
-    const renderLogoItem = useCallback((item, key) => {
+    const renderLogoItem = useCallback((item: LogoItem, key: string) => {
       const isNodeItem = "node" in item;
 
       const content = isNodeItem ? (

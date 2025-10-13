@@ -89,7 +89,7 @@ const ElectricBorder = ({
     }
 
     requestAnimationFrame(() => {
-      [...dyAnims, ...dxAnims].forEach((a: any) => {
+      [...dyAnims, ...dxAnims].forEach((a: SVGAnimationElement) => {
         if (typeof a.beginElement === "function") {
           try {
             a.beginElement();
@@ -118,8 +118,8 @@ const ElectricBorder = ({
   }, []);
 
   const vars: CSSProperties = {
-    ["--electric-border-color" as any]: color,
-    ["--eb-border-width" as any]: `${thickness}px`,
+    ["--electric-border-color" as keyof CSSProperties]: color,
+    ["--eb-border-width" as keyof CSSProperties]: `${thickness}px`,
   };
 
   return (

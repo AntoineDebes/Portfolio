@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 type Direction = "left" | "right";
@@ -33,7 +33,7 @@ export function InfiniteMovingCards({
 
   useEffect(() => {
     if (!containerRef.current || !scrollerRef.current) return;
-    const container = containerRef.current;
+    // const container = containerRef.current;
     const scroller = scrollerRef.current;
     const duration = speedToDuration[speed];
 
