@@ -22,7 +22,7 @@ export default function SparklesTitle({
           {children}
         </span>
       </h2>
-      <div className="relative mt-4 h-12 w-[15rem] md:w-[40rem] dark:block md:block">
+      <div className="relative mt-4 h-12 w-[15rem] md:w-[40rem] hidden md:dark:block ">
         {/* decorative gradients */}
         <div className="pointer-events-none absolute inset-x-10 top-0 h-[2px] w-3/4 bg-gradient-to-r from-transparent via-[var(--secondary)] to-transparent blur-sm" />
         <div className="pointer-events-none absolute inset-x-10 top-0 h-px w-3/4 bg-gradient-to-r from-transparent via-[var(--secondary)] to-transparent" />
