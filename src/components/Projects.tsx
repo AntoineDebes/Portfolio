@@ -60,7 +60,7 @@ const demoItems: Project[] = [
 
 export default function Projects({ items = demoItems }: ProjectsProps) {
   return (
-    <section className="relative py-20 bg-gray-50 dark:bg-black transition-colors duration-300">
+    <section className="relative md:py-20 py-12 bg-gray-50 dark:bg-black transition-colors duration-300">
       <div className="mx-auto max-w-5xl px-6">
         <h2 className="mb-10 text-center text-3xl font-semibold text-gray-900 dark:text-white">
           <SparklesTitle>Projects</SparklesTitle>

@@ -16,7 +16,7 @@ type WorkExperienceProps = {
 
 export default function WorkExperience({ items }: WorkExperienceProps) {
   return (
-    <section className="relative py-20 bg-gray-50 dark:bg-black transition-colors duration-300">
+    <section className="relative md:py-20 py-12 bg-gray-50 dark:bg-black transition-colors duration-300">
       <TracingBeam className="px-6">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mb-10">

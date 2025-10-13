@@ -293,7 +293,7 @@ const logosRow2 = [
 
 export default function Skills() {
   return (
-    <section className="relative py-20 bg-gray-50 dark:bg-black transition-colors duration-300">
+    <section className="relative md:py-20 py-12 bg-gray-50 dark:bg-black transition-colors duration-300">
       <div className="mx-auto max-w-6xl px-6">
         <h2 className="mb-10 text-center text-3xl font-semibold text-gray-900 dark:text-white">
           <SparklesTitle>Skills</SparklesTitle>

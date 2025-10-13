@@ -7,6 +7,12 @@
   isolation: isolate;
 }
 
+.electric-border-static {
+  position: relative;
+  border-radius: 20px;
+  overflow: visible;
+}
+
 .eb-svg {
   position: fixed;
   left: -10000px;

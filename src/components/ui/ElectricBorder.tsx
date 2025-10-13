@@ -16,6 +16,7 @@ type ElectricBorderProps = {
   thickness?: number;
   className?: string;
   style?: CSSProperties;
+  disableOnMobile?: boolean;
 };
 
 const ElectricBorder = ({
@@ -26,6 +27,7 @@ const ElectricBorder = ({
   thickness = 2,
   className,
   style,
+  disableOnMobile = false,
 }: ElectricBorderProps) => {
   const rawId = useId().replace(/[:]/g, "");
   const filterId = `turbulent-displace-${rawId}`;
@@ -33,7 +35,30 @@ const ElectricBorder = ({
   const rootRef = useRef<HTMLDivElement | null>(null);
   const strokeRef = useRef<HTMLDivElement | null>(null);
 
-  const updateAnim = () => {
+  // Mobile detection and performance optimization
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [shouldDisable, setShouldDisable] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      const mobile =
+        window.innerWidth < 768 ||
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      setIsMobile(mobile);
+      setShouldDisable(mobile && disableOnMobile);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, [disableOnMobile]);
+
+  const updateAnim = React.useCallback(() => {
+    // Skip animation updates on mobile if disabled
+    if (shouldDisable) return;
+
     const svg = svgRef.current as unknown as SVGSVGElement & {
       querySelector: Document["querySelector"];
     };
@@ -69,14 +94,19 @@ const ElectricBorder = ({
       dxAnims[1].setAttribute("values", `0; -${width}`);
     }
 
-    const baseDur = 6;
+    // Reduce animation complexity on mobile for better performance
+    const baseDur = isMobile ? 8 : 6; // Slower animations on mobile
     const dur = Math.max(0.001, baseDur / (speed || 1));
     [...dyAnims, ...dxAnims].forEach((a: SVGAnimateElement) =>
       a.setAttribute("dur", `${dur}s`)
     );
 
     const disp = svg.querySelector("feDisplacementMap");
-    if (disp) disp.setAttribute("scale", String(30 * (chaos || 1)));
+    if (disp) {
+      // Reduce displacement intensity on mobile
+      const scale = isMobile ? 15 * (chaos || 1) : 30 * (chaos || 1);
+      disp.setAttribute("scale", String(scale));
+    }
 
     const filterEl = svg.querySelector(
       `#${CSS.escape(filterId)}`
@@ -101,7 +131,7 @@ const ElectricBorder = ({
         }
       });
     });
-  };
+  }, [shouldDisable, isMobile, filterId, speed, chaos]);
 
   useEffect(() => {
     updateAnim();
@@ -109,18 +139,46 @@ const ElectricBorder = ({
   }, [speed, chaos]);
 
   useLayoutEffect(() => {
-    if (!rootRef.current) return;
-    const ro = new ResizeObserver(() => updateAnim());
+    if (!rootRef.current || shouldDisable) return;
+
+    // Throttle resize observer on mobile
+    let timeoutId: NodeJS.Timeout;
+    const throttledUpdate = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(updateAnim, isMobile ? 100 : 16);
+    };
+
+    const ro = new ResizeObserver(throttledUpdate);
     ro.observe(rootRef.current);
     updateAnim();
-    return () => ro.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
+    return () => {
+      ro.disconnect();
+      clearTimeout(timeoutId);
+    };
+  }, [shouldDisable, isMobile, updateAnim]);
 
   const vars: CSSProperties = {
     ["--electric-border-color" as keyof CSSProperties]: color,
     ["--eb-border-width" as keyof CSSProperties]: `${thickness}px`,
   };
+
+  // If disabled on mobile, render a simple static border
+  if (shouldDisable) {
+    return (
+      <div
+        ref={rootRef}
+        className={`z-0 electric-border-static ${className ?? ""}`}
+        style={{
+          border: `${thickness}px solid ${color}`,
+          borderRadius: "20px",
+          ...style,
+        }}
+      >
+        <div className="eb-content">{children}</div>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -140,8 +198,8 @@ const ElectricBorder = ({
           >
             <feTurbulence
               type="turbulence"
-              baseFrequency="0.02"
-              numOctaves="10"
+              baseFrequency={isMobile ? "0.01" : "0.02"}
+              numOctaves={isMobile ? "5" : "10"}
               result="noise1"
               seed="1"
             />
@@ -157,8 +215,8 @@ const ElectricBorder = ({
 
             <feTurbulence
               type="turbulence"
-              baseFrequency="0.02"
-              numOctaves="10"
+              baseFrequency={isMobile ? "0.01" : "0.02"}
+              numOctaves={isMobile ? "5" : "10"}
               result="noise2"
               seed="1"
             />
@@ -174,8 +232,8 @@ const ElectricBorder = ({
 
             <feTurbulence
               type="turbulence"
-              baseFrequency="0.02"
-              numOctaves="10"
+              baseFrequency={isMobile ? "0.01" : "0.02"}
+              numOctaves={isMobile ? "5" : "10"}
               result="noise1"
               seed="2"
             />
@@ -191,8 +249,8 @@ const ElectricBorder = ({
 
             <feTurbulence
               type="turbulence"
-              baseFrequency="0.02"
-              numOctaves="10"
+              baseFrequency={isMobile ? "0.01" : "0.02"}
+              numOctaves={isMobile ? "5" : "10"}
               result="noise2"
               seed="2"
             />
