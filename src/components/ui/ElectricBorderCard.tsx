@@ -21,7 +21,10 @@ export default function ElectricBorderCard({
   children,
 }: ElectricBorderCardProps) {
   const content = (
-    <ElectricBorder className={`rounded-[20px] h-full ${className ?? ""}`}>
+    <ElectricBorder
+      className={`rounded-[20px] h-full ${className ?? ""}`}
+      disableOnMobile={true}
+    >
       <div className="rounded-[20px] bg-white dark:bg-white/10 p-6 text-gray-900 dark:text-white/90 backdrop-blur transition-colors hover:bg-gray-50 dark:hover:bg-white/20 shadow-sm dark:shadow-none h-full flex flex-col">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
           {href ? (
