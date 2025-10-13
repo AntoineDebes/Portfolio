@@ -45,7 +45,7 @@ export default function ThemeToggle() {
   return (
     <motion.button
       onClick={toggleTheme}
-      className="relative w-16 h-8 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+      className="cursor-pointer relative w-16 h-8 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
       style={{
         background: isDark
           ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
