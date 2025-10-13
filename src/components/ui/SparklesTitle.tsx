@@ -17,12 +17,12 @@ export default function SparklesTitle({
         className ?? ""
       }`}
     >
-      <h2 className="relative z-20 text-gray-900 dark:text-white">
-        <span className="text-6xl font-bold bg-gradient-to-r from-gray-900 via-gray-900 to-gray-700 dark:from-white dark:via-white dark:to-white/80 bg-clip-text text-transparent">
+      <h2 className="relative z-20 text-gray-900 dark:text-white text-center">
+        <span className="text-3xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-gray-900 to-gray-700 dark:from-white dark:via-white dark:to-white/80 bg-clip-text text-transparent break-words leading-tight">
           {children}
         </span>
       </h2>
-      <div className="relative mt-4 h-12 w-[40rem] max-w-fit hidden dark:block">
+      <div className="relative mt-4 h-12 w-[15rem] md:w-[40rem] dark:block md:block">
         {/* decorative gradients */}
         <div className="pointer-events-none absolute inset-x-10 top-0 h-[2px] w-3/4 bg-gradient-to-r from-transparent via-[var(--secondary)] to-transparent blur-sm" />
         <div className="pointer-events-none absolute inset-x-10 top-0 h-px w-3/4 bg-gradient-to-r from-transparent via-[var(--secondary)] to-transparent" />
