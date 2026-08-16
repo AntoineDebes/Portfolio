@@ -1,0 +1,21 @@
+{
+  "measuredAt": "2026-08-16",
+  "firstLoadJsKb": 105.5,
+  "worstRouteJsKb": 105.5,
+  "worstRoute": "/",
+  "htmlKb": 16.1,
+  "cssKb": 10.5,
+  "fontsKb": 143,
+  "homeImagesKb": 177.1,
+  "renderBlockingRequests": 1,
+  "thirdPartyRequests": 0,
+  "routesChecked": 10,
+  "budget": {
+    "firstLoadJsKb": 120,
+    "htmlKb": 40,
+    "cssKb": 20,
+    "homeImagesKb": 300,
+    "renderBlockingRequests": 1,
+    "thirdPartyRequests": 0
+  }
+}

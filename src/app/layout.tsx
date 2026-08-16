@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import SocialLinks from "@/components/SocialLinks";
+import VitalsReporter from "@/components/VitalsReporter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,7 +17,10 @@ const description =
   "Principal Software Engineer specializing in web performance and frontend architecture — Next.js, React, Core Web Vitals. I make React apps fast.";
 
 export const metadata: Metadata = {
-  title: "Antoine Debes — Principal Software Engineer · Web Performance",
+  title: {
+    default: "Antoine Debes — Principal Software Engineer · Web Performance",
+    template: "%s · Antoine Debes",
+  },
   description,
   keywords: [
     "Web Performance",
@@ -41,6 +43,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://antoinedebes.com"),
   alternates: {
     canonical: "/",
+    types: { "application/rss+xml": "/feed.xml" },
   },
   openGraph: {
     type: "website",
@@ -90,9 +93,21 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://antoinedebes.com/#website",
+  url: "https://antoinedebes.com",
+  name: "Antoine Debes",
+  description,
+  author: { "@id": "https://antoinedebes.com/#person" },
+  inLanguage: "en",
+};
+
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://antoinedebes.com/#person",
   name: "Antoine Debes",
   jobTitle: "Principal Software Engineer",
   url: "https://antoinedebes.com",
@@ -116,6 +131,10 @@ const personJsonLd = {
   ],
 };
 
+const bootScript = `try{var t=localStorage.getItem("theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}
+console.log("%c\\u26A1 Curious how this page loads so fast?","color:#3fd68f;font-weight:bold;font-size:14px");
+console.log("Open the Network tab and read along: https://antoinedebes.com/writing/how-this-site-loads-in-under-one-second/");`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -128,23 +147,26 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
         {/* Apply the saved/system theme before first paint to avoid a flash */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem("theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}`,
-          }}
-        />
+        <script dangerouslySetInnerHTML={{ __html: bootScript }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([personJsonLd, websiteJsonLd]),
+          }}
         />
       </head>
       <body
         suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 text-gray-900 dark:bg-black dark:text-white`}
       >
-        <Navbar name="Antoine Debes" />
-        <SocialLinks />
+        <a
+          href="#content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-emerald-600 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white"
+        >
+          Skip to content
+        </a>
         {children}
+        <VitalsReporter />
       </body>
     </html>
   );

@@ -106,20 +106,10 @@ function ProjectCard({ title, description, href, previewSrc }: Project) {
 
 export default function Projects({ items = demoItems }: ProjectsProps) {
   return (
-    <section
-      id="projects"
-      className="relative scroll-mt-16 bg-gray-50 py-12 dark:bg-black md:py-20"
-    >
-      <div className="mx-auto max-w-5xl px-6">
-        <h2 className="mb-10 text-center text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
-          Projects
-        </h2>
-        <div className="grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {items.map((item, idx) => (
-            <ProjectCard key={`${item.title}-${idx}`} {...item} />
-          ))}
-        </div>
-      </div>
-    </section>
+    <div className="grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-2">
+      {items.map((item, idx) => (
+        <ProjectCard key={`${item.title}-${idx}`} {...item} />
+      ))}
+    </div>
   );
 }

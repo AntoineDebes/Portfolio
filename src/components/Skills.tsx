@@ -7,7 +7,7 @@ const groups: { label: string; items: string[] }[] = [
   },
   {
     label: "Styling & Motion",
-    items: ["Tailwind CSS", "SASS", "GSAP", "Framer Motion", "Three.js"],
+    items: ["Tailwind CSS", "SASS", "GSAP", "Three.js"],
   },
   {
     label: "Platforms & CMS",
@@ -27,34 +27,27 @@ const groups: { label: string; items: string[] }[] = [
 
 export default function Skills() {
   return (
-    <section className="relative bg-gray-50 py-12 dark:bg-black md:py-20">
-      <div className="mx-auto max-w-5xl px-6">
-        <h2 className="mb-10 text-center text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
-          Stack
-        </h2>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {groups.map((group) => (
-            <div
-              key={group.label}
-              className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-white/5"
-            >
-              <h3 className="text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
-                {group.label}
-              </h3>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {group.items.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1 text-sm text-gray-700 dark:border-white/10 dark:bg-white/5 dark:text-white/80"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+      {groups.map((group) => (
+        <div
+          key={group.label}
+          className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-white/5"
+        >
+          <h3 className="text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
+            {group.label}
+          </h3>
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {group.items.map((item) => (
+              <li
+                key={item}
+                className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1 text-sm text-gray-700 dark:border-white/10 dark:bg-white/5 dark:text-white/80"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
-    </section>
+      ))}
+    </div>
   );
 }

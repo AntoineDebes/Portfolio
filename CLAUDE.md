@@ -15,7 +15,7 @@ npm run lint     # eslint
 npm run images   # sharp: regenerate optimized project screenshots (WebP) + the 1200×630 OG image (public/og.png)
 ```
 
-There is no test suite. Both `package-lock.json` and `pnpm-lock.yaml` exist; Netlify builds with npm (`netlify.toml`), so prefer npm to keep `package-lock.json` authoritative.
+There is no test suite. npm is the package manager — `package-lock.json` is the only lockfile. (A stale `pnpm-lock.yaml` used to exist and broke Vercel deploys with `ERR_PNPM_OUTDATED_LOCKFILE`; don't reintroduce one.)
 
 **Never run `npm run build` while `npm run dev` is running.** They share the `.next` directory; the build clobbers the dev server's chunks, which then crashes with `Error: Cannot find module './NNN.js'` and serves a blank page. Stop dev, build, then restart dev (delete `.next` first if the dev server was crashed this way).
 
