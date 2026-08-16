@@ -18,7 +18,7 @@ function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-24 pt-20 first:pt-14 lg:pt-24 lg:first:pt-0">
-      <h2 className="sticky top-0 z-20 -mx-6 mb-8 bg-gray-50/85 px-6 py-4 text-sm font-bold uppercase tracking-widest text-emerald-700 backdrop-blur dark:bg-black/75 dark:text-emerald-400 lg:static lg:mx-0 lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none dark:lg:bg-transparent">
+      <h2 className="sticky top-0 z-20 -mx-6 mb-8 bg-gray-50/85 px-6 py-4 text-[15px] font-bold uppercase tracking-widest text-emerald-700 backdrop-blur dark:bg-black/75 dark:text-emerald-400 lg:static lg:mx-0 lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none dark:lg:bg-transparent">
         {title}
       </h2>
       {children}
@@ -44,7 +44,7 @@ export default function Home() {
 
         <main id="content" className="flex-1 pb-24 lg:py-20">
           <Section id="about" title="About">
-            <div className="max-w-xl space-y-4 text-[15px] leading-relaxed text-gray-700 dark:text-white/75">
+            <div className="max-w-xl space-y-4 text-[17px] leading-relaxed text-gray-700 dark:text-white/75">
               <p>
                 I&apos;m a Principal Software Engineer at{" "}
                 <a
@@ -68,7 +68,7 @@ export default function Home() {
                 Vitals, bundle bytes, main-thread time — and about the craft
                 you can feel in the details.
               </p>
-              <p className="text-sm text-gray-600 dark:text-white/55">
+              <p className="text-base text-gray-600 dark:text-white/55">
                 <span className="font-semibold uppercase tracking-wider text-gray-500 dark:text-white/55">
                   Now:
                 </span>{" "}
@@ -105,14 +105,14 @@ export default function Home() {
             <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               Get in touch
             </h2>
-            <p className="mt-3 max-w-md text-sm leading-relaxed text-gray-600 dark:text-white/65">
+            <p className="mt-3 max-w-md text-base leading-relaxed text-gray-600 dark:text-white/65">
               Performance audit, a slow app that needs a diagnosis, or just
               want to talk shop about Core Web Vitals — my inbox is open.
             </p>
             <div className="mt-5">
               <CopyEmailButton />
             </div>
-            <p className="mt-12 max-w-md text-xs leading-relaxed text-gray-500 dark:text-white/55">
+            <p className="mt-12 max-w-md text-sm leading-relaxed text-gray-500 dark:text-white/55">
               Designed &amp; built by Antoine Debes. Next.js + Tailwind,
               statically exported, served from Netlify&apos;s CDN. No cookies,
               no trackers, no consent banner — just ~3 kB of first-party Web

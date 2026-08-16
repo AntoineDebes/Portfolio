@@ -38,7 +38,7 @@ const roles: Role[] = [
 export default function Timeline() {
   return (
     <div>
-      <p className="mb-8 max-w-xl text-sm text-gray-600 dark:text-white/60">
+      <p className="mb-8 max-w-xl text-base text-gray-600 dark:text-white/60">
         One agency, three names — Mirum became Wunderman Thompson became VML
         through successive mergers. Same team, growing scope.
       </p>
@@ -50,25 +50,25 @@ export default function Timeline() {
               className="absolute -left-[5px] top-2 h-[9px] w-[9px] rounded-full bg-emerald-600 ring-4 ring-gray-50 dark:bg-emerald-400 dark:ring-black"
             />
             <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                 {role.title}
                 <span className="font-normal text-gray-600 dark:text-white/60">
                   {" "}
                   · {role.org}
                 </span>
               </h3>
-              <span className="shrink-0 font-mono text-xs text-gray-500 tabular-nums dark:text-white/50">
+              <span className="shrink-0 font-mono text-[13px] text-gray-500 tabular-nums dark:text-white/50">
                 {role.period}
               </span>
             </div>
-            <p className="mt-2 max-w-xl text-sm leading-relaxed text-gray-600 dark:text-white/70">
+            <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-gray-600 dark:text-white/70">
               {role.description}
             </p>
             <ul className="mt-3 flex flex-wrap gap-2" aria-label="Technologies">
               {role.tags.map((tag) => (
                 <li
                   key={tag}
-                  className="rounded-full bg-emerald-600/10 px-3 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-400/10 dark:text-emerald-300"
+                  className="rounded-full bg-emerald-600/10 px-3 py-0.5 text-[13px] font-medium text-emerald-800 dark:bg-emerald-400/10 dark:text-emerald-300"
                 >
                   {tag}
                 </li>

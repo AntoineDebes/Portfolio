@@ -21,10 +21,10 @@ export default function Sidebar() {
         <h1 className="mt-6 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
           Antoine Debes
         </h1>
-        <h2 className="mt-2 text-lg font-medium text-gray-800 dark:text-white/85">
+        <h2 className="mt-2 text-xl font-medium text-gray-800 dark:text-white/85">
           Principal Software Engineer
         </h2>
-        <p className="mt-3 max-w-xs text-sm leading-relaxed text-gray-600 dark:text-white/60">
+        <p className="mt-3 max-w-xs text-[15px] leading-relaxed text-gray-600 dark:text-white/60">
           I make React apps fast — web performance &amp; frontend architecture
           for Next.js, measured in Core Web Vitals.
         </p>

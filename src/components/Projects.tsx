@@ -77,7 +77,7 @@ function ProjectCard({ title, description, href, previewSrc }: Project) {
         </span>
       ) : null}
       <span className="flex flex-1 flex-col p-5">
-        <span className="flex items-center gap-2 text-lg font-semibold text-gray-900 dark:text-white">
+        <span className="flex items-center gap-2 text-xl font-semibold text-gray-900 dark:text-white">
           {title}
           <svg
             aria-hidden="true"
@@ -95,7 +95,7 @@ function ProjectCard({ title, description, href, previewSrc }: Project) {
           </svg>
         </span>
         {description ? (
-          <span className="mt-2 text-sm leading-relaxed text-gray-600 dark:text-white/70">
+          <span className="mt-2 text-[15px] leading-relaxed text-gray-600 dark:text-white/70">
             {description}
           </span>
         ) : null}

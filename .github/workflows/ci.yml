@@ -19,6 +19,8 @@ jobs:
       - run: npm run build
       - name: Enforce performance budget
         run: node scripts/measure-perf.mjs --check
+      - name: Verify every referenced asset resolves
+        run: node scripts/check-assets.mjs
       - name: Lighthouse (static export)
         uses: treosh/lighthouse-ci-action@v12
         with:

@@ -1,18 +1,23 @@
-// Generates the 1200x630 Open Graph share image at public/og.png.
+// Generates the branded 1200x630 Open Graph images for the site's fixed
+// routes (article OG images come from scripts/og-posts.mjs).
 // Usage: node scripts/og-image.mjs
 import sharp from "sharp";
+import { mkdir } from "node:fs/promises";
 import path from "node:path";
 
 const PUBLIC = new URL("../public/", import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1");
 
-const svg = `
+const esc = (s) => s.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+
+const dots = Array.from({ length: 12 }, (_, r) =>
+  Array.from({ length: 22 }, (_, c) => `<circle cx="${60 + c * 52}" cy="${60 + r * 48}" r="2"/>`).join("")
+).join("\n    ");
+
+const card = ({ heading, accent, sub, kicker = "antoinedebes.com" }) => `
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="630" fill="#0b0d0e"/>
-  <!-- subtle dot grid -->
   <g fill="#1e2426">
-    ${Array.from({ length: 12 }, (_, r) =>
-      Array.from({ length: 22 }, (_, c) => `<circle cx="${60 + c * 52}" cy="${60 + r * 48}" r="2"/>`).join("")
-    ).join("\n    ")}
+    ${dots}
   </g>
   <rect x="0" y="0" width="1200" height="630" fill="url(#fade)"/>
   <defs>
@@ -22,11 +27,45 @@ const svg = `
     </linearGradient>
   </defs>
   <rect x="80" y="336" width="64" height="6" fill="#3fd68f"/>
-  <text x="80" y="308" font-family="Segoe UI, Arial, sans-serif" font-size="84" font-weight="800" fill="#e7ebec" letter-spacing="-2">Antoine Debes</text>
-  <text x="80" y="418" font-family="Segoe UI, Arial, sans-serif" font-size="40" font-weight="600" fill="#3fd68f">Principal Software Engineer</text>
-  <text x="80" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#98a3a8">Web performance &amp; frontend architecture - Next.js, React, Core Web Vitals</text>
-  <text x="80" y="572" font-family="Consolas, monospace" font-size="26" fill="#6b7679">antoinedebes.com</text>
+  <text x="80" y="308" font-family="Segoe UI, Arial, sans-serif" font-size="84" font-weight="800" fill="#e7ebec" letter-spacing="-2">${esc(heading)}</text>
+  <text x="80" y="418" font-family="Segoe UI, Arial, sans-serif" font-size="40" font-weight="600" fill="#3fd68f">${esc(accent)}</text>
+  <text x="80" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#98a3a8">${esc(sub)}</text>
+  <text x="80" y="572" font-family="Consolas, monospace" font-size="26" fill="#6b7679">${esc(kicker)}</text>
 </svg>`;
 
-await sharp(Buffer.from(svg)).png().toFile(path.join(PUBLIC, "og.png"));
-console.log("public/og.png written (1200x630)");
+const pages = [
+  {
+    file: "og.png",
+    heading: "Antoine Debes",
+    accent: "Principal Software Engineer",
+    sub: "Web performance & frontend architecture - Next.js, React, Core Web Vitals",
+  },
+  {
+    file: "og/writing.png",
+    heading: "Writing",
+    accent: "Web performance, deeply",
+    sub: "Core Web Vitals, Next.js internals, fonts, bundles, and INP",
+    kicker: "antoinedebes.com/writing",
+  },
+  {
+    file: "og/perf.png",
+    heading: "Performance, in public",
+    accent: "Measured, budgeted, enforced",
+    sub: "This site's own weight, its CI budget, and every regression logged",
+    kicker: "antoinedebes.com/perf",
+  },
+  {
+    file: "og/lab.png",
+    heading: "Lab",
+    accent: "Feel the metrics",
+    sub: "Small interactive experiments about how the web performs",
+    kicker: "antoinedebes.com/lab",
+  },
+];
+
+await mkdir(path.join(PUBLIC, "og"), { recursive: true });
+for (const page of pages) {
+  const dest = path.join(PUBLIC, page.file);
+  await sharp(Buffer.from(card(page))).png().toFile(dest);
+  console.log(`og-image: ${page.file} (1200x630)`);
+}

@@ -57,14 +57,14 @@ export default function InpDemo() {
   return (
     <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-white/5">
       <fieldset>
-        <legend className="text-sm font-semibold text-gray-900 dark:text-white">
+        <legend className="text-base font-semibold text-gray-900 dark:text-white">
           1 · Choose how much main-thread work the click will do
         </legend>
         <div className="mt-3 flex flex-wrap gap-2">
           {[50, 200, 500, 1000].map((ms) => (
             <label
               key={ms}
-              className={`cursor-pointer rounded-md border px-3 py-1.5 font-mono text-sm transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-emerald-500 ${
+              className={`cursor-pointer rounded-md border px-3 py-2 font-mono text-base transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-emerald-500 ${
                 blockMs === ms
                   ? "border-emerald-600 bg-emerald-600/10 text-emerald-800 dark:border-emerald-400 dark:bg-emerald-400/10 dark:text-emerald-300"
                   : "border-gray-300 text-gray-700 hover:border-gray-500 dark:border-white/15 dark:text-white/70 dark:hover:border-white/40"
@@ -84,21 +84,21 @@ export default function InpDemo() {
         </div>
       </fieldset>
 
-      <p className="mt-5 text-sm font-semibold text-gray-900 dark:text-white">
+      <p className="mt-5 text-base font-semibold text-gray-900 dark:text-white">
         2 · Click and <em>feel</em> the number
       </p>
       <button
         type="button"
         onClick={run}
         disabled={running}
-        className="mt-3 inline-flex items-center rounded-md bg-gray-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-700 disabled:opacity-60 dark:bg-white dark:text-black dark:hover:bg-white/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
+        className="mt-3 inline-flex items-center rounded-md bg-gray-900 px-5 py-3 text-base font-medium text-white transition-colors hover:bg-gray-700 disabled:opacity-60 dark:bg-white dark:text-black dark:hover:bg-white/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
       >
         {running ? "Blocking the main thread…" : "Click me"}
       </button>
 
       <div aria-live="polite" className="mt-5 min-h-14">
         {result && rating && (
-          <div className="rounded-md bg-gray-50 p-4 font-mono text-sm dark:bg-white/5">
+          <div className="rounded-md bg-gray-50 p-4 font-mono text-base dark:bg-white/5">
             <p className="text-gray-700 dark:text-white/75">
               requested block:{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
@@ -118,7 +118,7 @@ export default function InpDemo() {
         )}
       </div>
 
-      <p className="mt-3 text-xs leading-relaxed text-gray-500 dark:text-white/45">
+      <p className="mt-3 text-sm leading-relaxed text-gray-500 dark:text-white/45">
         INP thresholds: good ≤ 200 ms · needs improvement ≤ 500 ms · poor &gt;
         500 ms. Notice the measured number is always a bit higher than the
         requested block — input delay and presentation time are part of the

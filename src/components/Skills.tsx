@@ -33,14 +33,14 @@ export default function Skills() {
           key={group.label}
           className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-white/5"
         >
-          <h3 className="text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
+          <h3 className="text-[13px] font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
             {group.label}
           </h3>
           <ul className="mt-4 flex flex-wrap gap-2">
             {group.items.map((item) => (
               <li
                 key={item}
-                className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1 text-sm text-gray-700 dark:border-white/10 dark:bg-white/5 dark:text-white/80"
+                className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1 text-[15px] text-gray-700 dark:border-white/10 dark:bg-white/5 dark:text-white/80"
               >
                 {item}
               </li>

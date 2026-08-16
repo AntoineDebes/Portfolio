@@ -1,8 +1,26 @@
 /_next/static/*
   Cache-Control: public, max-age=31536000, immutable
 
+/site.webmanifest
+  Content-Type: application/manifest+json; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/icon.svg
+  Content-Type: image/svg+xml
+  Cache-Control: public, max-age=604800
+
+/feed.xml
+  Content-Type: application/rss+xml; charset=utf-8
+  Cache-Control: public, max-age=3600
+
 /og/*
   Cache-Control: public, max-age=86400
 
+/*.png
+  Cache-Control: public, max-age=604800
+
 /*.webp
+  Cache-Control: public, max-age=604800
+
+/*.ico
   Cache-Control: public, max-age=604800

@@ -25,9 +25,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: post.permalink,
       title: post.title,
       description: post.description,
+      siteName: "Antoine Debes",
+      locale: "en_US",
       publishedTime: post.date,
+      modifiedTime: post.date,
       authors: ["Antoine Debes"],
-      images: [{ url: `/og/${post.slug}.png`, width: 1200, height: 630 }],
+      images: [
+        {
+          url: `/og/${post.slug}.png`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -57,6 +67,7 @@ export default async function PostPage({ params }: Props) {
       headline: post.title,
       description: post.description,
       datePublished: post.date,
+      dateModified: post.date,
       keywords: post.tags.join(", "),
       url: `https://antoinedebes.com${post.permalink}`,
       image: `https://antoinedebes.com/og/${post.slug}.png`,
@@ -102,20 +113,20 @@ export default async function PostPage({ params }: Props) {
             <h1 className="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-4xl">
               {post.title}
             </h1>
-            <p className="mt-4 font-mono text-xs text-gray-500 tabular-nums dark:text-white/50">
+            <p className="mt-4 font-mono text-[13px] text-gray-500 tabular-nums dark:text-white/50">
               {formatDate(post.date)} · {post.metadata.readingTime} min read ·{" "}
               {post.tags.join(" · ")}
             </p>
           </header>
           <div
-            className="prose prose-zinc mt-10 max-w-none dark:prose-invert prose-headings:tracking-tight prose-a:text-emerald-700 prose-a:decoration-emerald-600/40 hover:prose-a:decoration-emerald-600 dark:prose-a:text-emerald-400 prose-code:before:content-none prose-code:after:content-none"
+            className="prose prose-lg prose-zinc mt-10 max-w-none dark:prose-invert prose-headings:tracking-tight prose-a:text-emerald-700 prose-a:decoration-emerald-600/40 hover:prose-a:decoration-emerald-600 dark:prose-a:text-emerald-400 prose-code:before:content-none prose-code:after:content-none"
             dangerouslySetInnerHTML={{ __html: post.body }}
           />
         </article>
         <footer className="mt-14 border-t border-gray-200 pt-8 dark:border-white/10">
           {related.length > 0 && (
             <nav aria-label="More writing" className="mb-10">
-              <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-white/55">
+              <h2 className="text-[13px] font-semibold uppercase tracking-widest text-gray-500 dark:text-white/55">
                 More writing
               </h2>
               <ul className="mt-4 space-y-2">
@@ -123,7 +134,7 @@ export default async function PostPage({ params }: Props) {
                   <li key={p.slug}>
                     <Link
                       href={p.permalink}
-                      className="text-sm font-medium text-emerald-700 hover:underline dark:text-emerald-400"
+                      className="text-base font-medium text-emerald-700 hover:underline dark:text-emerald-400"
                     >
                       {p.title}
                     </Link>
@@ -132,7 +143,7 @@ export default async function PostPage({ params }: Props) {
               </ul>
             </nav>
           )}
-          <p className="text-sm text-gray-600 dark:text-white/65">
+          <p className="text-base text-gray-600 dark:text-white/65">
             Thoughts, corrections, or a waterfall you want a second opinion on?{" "}
             <a
               href="mailto:info@antoinedebes.com"

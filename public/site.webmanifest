@@ -1,22 +1,37 @@
 {
-  "name": "Antoine Debes - Full Stack Developer",
+  "name": "Antoine Debes — Principal Software Engineer",
   "short_name": "Antoine Debes",
-  "description": "Full-stack developer skilled in Three.js, creating engaging, high-performance, and visually dynamic web experiences.",
+  "description": "Web performance and frontend architecture — Next.js, React, Core Web Vitals.",
   "icons": [
     {
-      "src": "/favicon-32x32.png",
-      "sizes": "32x32",
-      "type": "image/png"
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png"
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
-  "theme_color": "#000000",
-  "background_color": "#ffffff",
+  "theme_color": "#0b0d0e",
+  "background_color": "#0b0d0e",
   "display": "standalone",
   "start_url": "/",
-  "scope": "/"
+  "scope": "/",
+  "lang": "en"
 }

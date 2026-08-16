@@ -8,8 +8,10 @@
     "start": "next start",
     "lint": "eslint",
     "content": "velite",
-    "images": "node scripts/optimize-images.mjs && node scripts/og-image.mjs",
-    "measure": "node scripts/measure-perf.mjs"
+    "icons": "node scripts/icons.mjs",
+    "images": "node scripts/optimize-images.mjs && node scripts/og-image.mjs && node scripts/icons.mjs",
+    "measure": "node scripts/measure-perf.mjs",
+    "verify": "node scripts/measure-perf.mjs --check && node scripts/check-assets.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
