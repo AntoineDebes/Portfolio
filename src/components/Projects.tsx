@@ -62,7 +62,7 @@ function ProjectCard({ title, description, href, previewSrc }: Project) {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="group flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-emerald-500/50 hover:shadow-md dark:border-white/10 dark:bg-white/5 dark:hover:border-emerald-400/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-500"
+      className="group flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-emerald-500/50 hover:shadow-md motion-reduce:hover:translate-y-0 dark:border-white/10 dark:bg-white/5 dark:hover:border-emerald-400/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-500"
     >
       {previewSrc ? (
         <span className="block aspect-video overflow-hidden border-b border-gray-100 dark:border-white/10">
@@ -108,7 +108,18 @@ export default function Projects({ items = demoItems }: ProjectsProps) {
   return (
     <div className="grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-2">
       {items.map((item, idx) => (
-        <ProjectCard key={`${item.title}-${idx}`} {...item} />
+        <div
+          key={`${item.title}-${idx}`}
+          data-reveal
+          // Stagger as a custom property, consumed only by .reveal-in — an
+          // inline transition-delay would also delay the hide, which makes
+          // the card flash before disappearing.
+          style={
+            { "--reveal-delay": `${(idx % 2) * 70}ms` } as React.CSSProperties
+          }
+        >
+          <ProjectCard {...item} />
+        </div>
       ))}
     </div>
   );

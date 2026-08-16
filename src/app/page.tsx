@@ -18,7 +18,10 @@ function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-24 pt-20 first:pt-14 lg:pt-24 lg:first:pt-0">
-      <h2 className="sticky top-0 z-20 -mx-6 mb-8 bg-gray-50/85 px-6 py-4 text-[15px] font-bold uppercase tracking-widest text-emerald-700 backdrop-blur dark:bg-black/75 dark:text-emerald-400 lg:static lg:mx-0 lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none dark:lg:bg-transparent">
+      {/* Opaque, not translucent: a semi-transparent sticky bar lets the
+          content ghost through it as you scroll, which reads as text fading
+          into the background. Solid also avoids backdrop-filter's cost. */}
+      <h2 className="sticky top-0 z-20 -mx-6 mb-8 bg-gray-50 px-6 py-4 text-[15px] font-bold uppercase tracking-widest text-emerald-700 dark:bg-black dark:text-emerald-400 lg:static lg:mx-0 lg:bg-transparent lg:px-0 lg:py-0 dark:lg:bg-transparent">
         {title}
       </h2>
       {children}

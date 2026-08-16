@@ -44,7 +44,7 @@ export default function Timeline() {
       </p>
       <ol className="relative border-l border-gray-200 dark:border-white/10">
         {roles.map((role) => (
-          <li key={role.period} className="tl-reveal relative mb-12 pl-8 last:mb-0">
+          <li key={role.period} data-reveal className="relative mb-12 pl-8 last:mb-0">
             <span
               aria-hidden="true"
               className="absolute -left-[5px] top-2 h-[9px] w-[9px] rounded-full bg-emerald-600 ring-4 ring-gray-50 dark:bg-emerald-400 dark:ring-black"

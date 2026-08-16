@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import VitalsReporter from "@/components/VitalsReporter";
+import Reveal from "@/components/Reveal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -195,6 +196,7 @@ export default function RootLayout({
           Skip to content
         </a>
         {children}
+        <Reveal />
         <VitalsReporter />
       </body>
     </html>
