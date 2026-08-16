@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { TracingBeam } from "@/components/ui/tracing-beam";
-import SparklesTitle from "@/components/ui/SparklesTitle";
 
 export type ExperienceItem = {
   role: string;
@@ -16,11 +15,14 @@ type WorkExperienceProps = {
 
 export default function WorkExperience({ items }: WorkExperienceProps) {
   return (
-    <section className="relative md:py-20 py-12 bg-gray-50 dark:bg-black transition-colors duration-300">
+    <section
+      id="experience"
+      className="relative scroll-mt-16 md:py-20 py-12 bg-gray-50 dark:bg-black"
+    >
       <TracingBeam className="px-6">
         <div className="mx-auto max-w-3xl">
-          <h2 className="text-center text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mb-10">
-            <SparklesTitle>Work Experience</SparklesTitle>
+          <h2 className="text-center text-2xl md:text-3xl font-semibold tracking-tight text-gray-900 dark:text-white mb-10">
+            Work Experience
           </h2>
           <div className="space-y-10">
             {items.map((item, idx) => (

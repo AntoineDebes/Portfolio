@@ -17,6 +17,8 @@ npm run images   # sharp: regenerate optimized project screenshots (WebP) + the 
 
 There is no test suite. Both `package-lock.json` and `pnpm-lock.yaml` exist; Netlify builds with npm (`netlify.toml`), so prefer npm to keep `package-lock.json` authoritative.
 
+**Never run `npm run build` while `npm run dev` is running.** They share the `.next` directory; the build clobbers the dev server's chunks, which then crashes with `Error: Cannot find module './NNN.js'` and serves a blank page. Stop dev, build, then restart dev (delete `.next` first if the dev server was crashed this way).
+
 ## Critical constraint: static export
 
 `next.config.ts` sets `output: "export"` with `trailingSlash: true` and `images.unoptimized: true`. That means:
@@ -27,14 +29,15 @@ There is no test suite. Both `package-lock.json` and `pnpm-lock.yaml` exist; Net
 
 ## Architecture
 
-- `src/app/layout.tsx` — root layout; owns all SEO metadata (Open Graph, Twitter, robots, icons) and mounts the global `Navbar` and floating `SocialLinks`.
+- `src/app/layout.tsx` — root layout; owns all SEO metadata (Open Graph, Twitter, robots, icons), the JSON-LD Person schema, a pre-paint theme script (reads `localStorage.theme`, sets `.dark` on `<html>` before hydration), and mounts the global `Navbar` and floating `SocialLinks`.
 - `src/app/page.tsx` — the only page; composes section components in order (`Hero`, `WorkExperience`, `Projects`, `Skills`) and holds the experience data inline.
-- `src/components/` — section components plus decorative/animated components (some are `.jsx` with co-located `.css` files, e.g. `LetterGlitch`, `CircularText`, `GradientText`, `LogoLoop`).
-- `src/components/ui/` — shadcn-style primitives and effect components (`sparkles`, `tracing-beam`, `ElectricBorder*`, `SparklesTitle`, `LinkPreview`, `ThemeToggle`, `infinite-moving-cards`).
+- `src/components/` — section components. `Hero`, `Projects`, `Skills`, `Navbar` are server components (no client JS); `WorkExperience` is a client component wrapping `ui/tracing-beam` (the only framer-motion consumer).
+- `src/components/ui/` — `ThemeToggle` (CSS-transition toggle, persists to localStorage) and `tracing-beam`.
 - `src/lib/utils.ts` — `cn()` (clsx + tailwind-merge).
+- `scripts/` — `optimize-images.mjs` + `og-image.mjs` (sharp; run via `npm run images`).
+
+Design direction (per the approved v2 blueprint): content-first minimal, dark-first zinc + emerald accent, no canvas/WebGL effects, motion limited to transform/opacity. Heavy effect components (LetterGlitch, Sparkles, ElectricBorder, LogoLoop marquee, Microlink LinkPreview) were deliberately removed — do not reintroduce that class of component; anything animated must be provably cheap.
 
 Styling is Tailwind CSS v4 (PostCSS plugin; theme configured in `src/app/globals.css`, no `tailwind.config`). shadcn/ui is configured in `components.json` (new-york style, zinc base color, lucide icons) with the `@aceternity` registry available for `npx shadcn add`. Animations use `motion`/`framer-motion` plus hand-rolled canvas components.
 
 Dark mode is class-based and treated as the primary look; most components style both `dark:` and light variants explicitly.
-
-`LinkPreview` fetches screenshots from `api.microlink.io` (whitelisted in `next.config.ts` image domains).

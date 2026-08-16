@@ -1,127 +1,83 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import LetterGlitch from "@/components/LetterGlitch";
-import CircularText from "@/components/CircularText";
+import React from "react";
 
 type HeroProps = {
   title?: string;
   subtitle?: string;
-  ctaText?: string;
-  ctaHref?: string;
 };
 
 export default function Hero({
   title = "Hi, I’m Antoine Debes",
   subtitle = "Principal Software Engineer · I make React apps fast",
-  ctaText = "View my work",
-  ctaHref = "#projects",
 }: HeroProps) {
-  const [dimmed, setDimmed] = useState(false);
-
-  useEffect(() => {
-    setDimmed(true);
-  }, []);
   return (
-    <section className="relative min-h-svh h-svh w-full overflow-hidden bg-gray-50 dark:bg-black">
-      <LetterGlitch
-        className="absolute inset-0"
-        glitchSpeed={30}
-        smooth
-        outerVignette
-      />
-      {/* Overlay only in dark mode */}
+    <section className="relative flex min-h-svh items-center justify-center overflow-hidden bg-gray-50 dark:bg-black">
+      {/* Static dot-grid background */}
       <div
-        className={`absolute inset-0 transition-all duration-500 ease-out ${
-          dimmed
-            ? "opacity-0 dark:opacity-100 bg-black/20"
-            : "opacity-0 dark:opacity-100 bg-black"
-        }`}
         aria-hidden="true"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(17,24,28,0.10)_1px,transparent_0)] dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.08)_1px,transparent_0)] bg-[size:28px_28px]"
       />
-      {/* Bottom fade overlay */}
+      {/* Emerald glow */}
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-40 bg-gradient-to-b from-transparent to-black"
         aria-hidden="true"
+        className="absolute left-1/2 top-1/4 h-[420px] w-[680px] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/10 dark:bg-emerald-400/10 blur-3xl"
+      />
+      {/* Fade to section below */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-gray-50 dark:to-black"
       />
 
-      {/* Profile Container - Absolute positioned */}
-      <div className="absolute inset-x-0 z-20 flex justify-center top-[50%] translate-y-[-50%]">
-        <div className="relative">
-          {/* Fading black background */}
-          <div className="absolute inset-0 -z-10 rounded-full bg-black/90 dark:bg-black/100 blur-3xl scale-150"></div>
-
-          <div className="text-center px-6 py-4">
-            {/* Profile Image with Circular Text */}
-            <div
-              className="mb-4 opacity-0 animate-fade-in relative inline-block"
-              style={{ animationDelay: "0.1s" }}
-            >
-              <div className="relative w-32 h-32 md:w-40 md:h-40">
-                {/* Circular Text Border */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <CircularText
-                    text="• WEB PERFORMANCE • REACT & NEXT.JS • FRONTEND ARCHITECTURE "
-                    spinDuration={20}
-                    onHover="speedUp"
-                    className="!w-[160px] !h-[160px] md:!w-[160px] md:!h-[160px]"
-                  />
-                </div>
-
-                {/* Profile Image */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="rounded-full overflow-hidden w-24 h-24 md:w-28 md:h-28 shadow-lg">
-                    <img
-                      src="/new-profile-pic.webp"
-                      alt="Antoine Debes"
-                      width={200}
-                      height={217}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Description under profile */}
-            <p
-              className="text-sm md:text-base text-white/90 max-w-xs mx-auto opacity-0 animate-fade-in"
-              style={{ animationDelay: "0.2s" }}
-            >
-              Web performance &amp; frontend architecture — Next.js, React,
-              Core Web Vitals. Principal Software Engineer at VML.
-            </p>
-          </div>
+      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
+        <div
+          className="opacity-0 animate-fade-in"
+          style={{ animationDelay: "0.05s" }}
+        >
+          <img
+            src="/new-profile-pic.webp"
+            alt="Antoine Debes"
+            width={200}
+            height={217}
+            className="mx-auto h-28 w-28 rounded-full object-cover ring-2 ring-emerald-500/40 ring-offset-4 ring-offset-gray-50 dark:ring-offset-black shadow-lg"
+          />
         </div>
-      </div>
-
-      <div className="relative z-10 grid h-full place-items-center px-6">
-        <div className="text-center max-w-3xl">
-          <h1
-            className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 dark:text-white opacity-0 animate-fade-in"
-            style={{ animationDelay: "0.3s" }}
+        <h1
+          className="mt-8 text-4xl font-bold tracking-tight text-gray-900 dark:text-white md:text-6xl opacity-0 animate-fade-in"
+          style={{ animationDelay: "0.15s" }}
+        >
+          {title}
+        </h1>
+        <p
+          className="mt-4 text-lg font-medium text-emerald-700 dark:text-emerald-400 md:text-xl opacity-0 animate-fade-in"
+          style={{ animationDelay: "0.25s" }}
+        >
+          {subtitle}
+        </p>
+        <p
+          className="mx-auto mt-4 max-w-xl text-sm text-gray-600 dark:text-white/70 md:text-base opacity-0 animate-fade-in"
+          style={{ animationDelay: "0.35s" }}
+        >
+          Web performance &amp; frontend architecture — Next.js, React, Core
+          Web Vitals. Principal Software Engineer at VML, shipping for banks
+          and giga-projects across the Gulf.
+        </p>
+        <div
+          className="mt-10 flex items-center justify-center gap-4 opacity-0 animate-fade-in"
+          style={{ animationDelay: "0.45s" }}
+        >
+          <a
+            href="#projects"
+            className="inline-flex items-center rounded-md bg-gray-900 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-gray-700 dark:bg-white dark:text-black dark:hover:bg-white/85"
           >
-            {title}
-          </h1>
-          <p
-            className="mt-4 text-base md:text-lg text-gray-700 dark:text-white/90 opacity-0 animate-fade-in"
-            style={{ animationDelay: "0.4s" }}
+            View my work
+          </a>
+          <a
+            href="mailto:info@antoinedebes.com"
+            className="inline-flex items-center rounded-md border border-gray-300 px-5 py-2.5 text-sm font-medium text-gray-800 transition-colors hover:border-gray-500 dark:border-white/25 dark:text-white dark:hover:border-white/50"
           >
-            {subtitle}
-          </p>
-          <div
-            className="mt-8 opacity-0 animate-fade-in"
-            style={{ animationDelay: "0.5s" }}
-          >
-            <a
-              href={ctaHref}
-              className="inline-flex items-center rounded-md bg-gray-900/10 dark:bg-white/20 px-5 py-2.5 text-sm font-medium text-gray-900 dark:text-white backdrop-blur transition hover:bg-gray-900/20 dark:hover:bg-white/30 border border-gray-900/20 dark:border-white/30"
-            >
-              {ctaText}
-            </a>
-          </div>
+            Get in touch
+          </a>
         </div>
       </div>
     </section>
   );
 }
-
