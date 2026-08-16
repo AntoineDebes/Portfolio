@@ -7,14 +7,14 @@ type HeroProps = {
   title?: string;
   subtitle?: string;
   ctaText?: string;
-  onCtaClick?: () => void;
+  ctaHref?: string;
 };
 
 export default function Hero({
-  title = "Hi, I’m Your Name",
-  subtitle = "Frontend Developer • UI Engineer • 3D Enthusiast",
+  title = "Hi, I’m Antoine Debes",
+  subtitle = "Principal Software Engineer · I make React apps fast",
   ctaText = "View my work",
-  onCtaClick,
+  ctaHref = "#projects",
 }: HeroProps) {
   const [dimmed, setDimmed] = useState(false);
 
@@ -60,7 +60,7 @@ export default function Hero({
                 {/* Circular Text Border */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <CircularText
-                    text="• FULL STACK DEVELOPER • WEB DESIGNER • CREATIVE CODER "
+                    text="• WEB PERFORMANCE • REACT & NEXT.JS • FRONTEND ARCHITECTURE "
                     spinDuration={20}
                     onHover="speedUp"
                     className="!w-[160px] !h-[160px] md:!w-[160px] md:!h-[160px]"
@@ -72,7 +72,9 @@ export default function Hero({
                   <div className="rounded-full overflow-hidden w-24 h-24 md:w-28 md:h-28 shadow-lg">
                     <img
                       src="/new-profile-pic.webp"
-                      alt="Profile"
+                      alt="Antoine Debes"
+                      width={200}
+                      height={217}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -85,8 +87,8 @@ export default function Hero({
               className="text-sm md:text-base text-white/90 max-w-xs mx-auto opacity-0 animate-fade-in"
               style={{ animationDelay: "0.2s" }}
             >
-              Full-stack developer skilled in Three.js, creating engaging,
-              high-performance, and visually dynamic web experiences.
+              Web performance &amp; frontend architecture — Next.js, React,
+              Core Web Vitals. Principal Software Engineer at VML.
             </p>
           </div>
         </div>
@@ -110,16 +112,16 @@ export default function Hero({
             className="mt-8 opacity-0 animate-fade-in"
             style={{ animationDelay: "0.5s" }}
           >
-            <button
-              type="button"
-              onClick={onCtaClick}
+            <a
+              href={ctaHref}
               className="inline-flex items-center rounded-md bg-gray-900/10 dark:bg-white/20 px-5 py-2.5 text-sm font-medium text-gray-900 dark:text-white backdrop-blur transition hover:bg-gray-900/20 dark:hover:bg-white/30 border border-gray-900/20 dark:border-white/30"
             >
               {ctaText}
-            </button>
+            </a>
           </div>
         </div>
       </div>
     </section>
   );
 }
+

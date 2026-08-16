@@ -5,12 +5,14 @@ import Image from "next/image";
 type LinkPreviewProps = {
   url?: string;
   imageSrc?: string;
+  imageAlt?: string;
   children: React.ReactNode;
 };
 
 export default function LinkPreview({
   url,
   imageSrc,
+  imageAlt = "Website preview",
   children,
 }: LinkPreviewProps) {
   return (
@@ -23,7 +25,7 @@ export default function LinkPreview({
               {imageSrc ? (
                 <Image
                   src={imageSrc}
-                  alt="Link preview"
+                  alt={imageAlt}
                   width={512}
                   height={288}
                   className="h-36 w-full object-cover opacity-90 transition-opacity duration-300 ease-out group-hover/title:opacity-100"

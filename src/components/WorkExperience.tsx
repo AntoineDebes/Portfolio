@@ -50,3 +50,4 @@ export default function WorkExperience({ items }: WorkExperienceProps) {
     </section>
   );
 }
+

@@ -3,8 +3,6 @@ import WorkExperience, { ExperienceItem } from "@/components/WorkExperience";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 
-export const revalidate = 3600;
-
 const experiences: ExperienceItem[] = [
   {
     role: "Principal Software Engineer",
@@ -15,14 +13,14 @@ const experiences: ExperienceItem[] = [
   },
   {
     role: "Senior Software Engineer",
-    company: "Wunderman Thompson",
+    company: "Wunderman Thompson (now VML)",
     period: "Oct 2023 — Jan 2024",
     description:
       "Implemented front-end solutions in TypeScript/Next.js, optimized build and release flows, and contributed to design systems and experimentation.",
   },
   {
     role: "Mid‑Senior Software Engineer",
-    company: "Mirum Agency",
+    company: "Mirum Agency (now VML)",
     period: "Oct 2022 — Sep 2023",
     description:
       "Built modern, responsive interfaces, introduced animation best practices with GSAP/Three.js, and streamlined team workflows with tooling and testing improvements.",
@@ -31,11 +29,11 @@ const experiences: ExperienceItem[] = [
 
 export default function Home() {
   return (
-    <div className="min-h-svh bg-gray-50 dark:bg-black text-gray-900 dark:text-white transition-colors duration-300">
+    <main className="min-h-svh bg-gray-50 dark:bg-black text-gray-900 dark:text-white transition-colors duration-300">
       <Hero />
       <WorkExperience items={experiences} />
       <Projects />
       <Skills />
-    </div>
+    </main>
   );
 }

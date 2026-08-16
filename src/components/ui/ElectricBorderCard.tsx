@@ -28,7 +28,11 @@ export default function ElectricBorderCard({
       <div className="rounded-[20px] bg-white dark:bg-white/10 p-6 text-gray-900 dark:text-white/90 backdrop-blur transition-colors hover:bg-gray-50 dark:hover:bg-white/20 shadow-sm dark:shadow-none h-full flex flex-col">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
           {href ? (
-            <LinkPreview url={href} imageSrc={previewSrc}>
+            <LinkPreview
+              url={href}
+              imageSrc={previewSrc}
+              imageAlt={`${title} — website screenshot`}
+            >
               <span className="underline decoration-gray-300 dark:decoration-white/30 underline-offset-4 hover:decoration-gray-500 dark:hover:decoration-white/50">
                 {title}
               </span>

@@ -90,7 +90,7 @@ const SocialLinks = () => {
         <div className="flex justify-center space-x-8 py-3">
           {/* GitHub */}
           <a
-            href="https://github.com/antoinedebes"
+            href="https://github.com/AntoineDebes"
             target="_blank"
             rel="noopener noreferrer"
             className="group"
@@ -109,7 +109,7 @@ const SocialLinks = () => {
 
           {/* LinkedIn */}
           <a
-            href="https://linkedin.com/in/antoinedebes"
+            href="https://www.linkedin.com/in/antoine-debes/"
             target="_blank"
             rel="noopener noreferrer"
             className="group"

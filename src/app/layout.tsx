@@ -14,18 +14,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const description =
+  "Principal Software Engineer specializing in web performance and frontend architecture — Next.js, React, Core Web Vitals. I make React apps fast.";
+
 export const metadata: Metadata = {
-  title: "Antoine Debes - Full Stack Developer",
-  description:
-    "Full-stack developer skilled in Three.js, creating engaging, high-performance, and visually dynamic web experiences.",
+  title: "Antoine Debes — Principal Software Engineer · Web Performance",
+  description,
   keywords: [
-    "Full Stack Developer",
-    "Three.js",
+    "Web Performance",
+    "Core Web Vitals",
     "React",
     "Next.js",
-    "Web Development",
-    "Frontend",
-    "Backend",
+    "Frontend Architecture",
+    "Principal Software Engineer",
+    "TypeScript",
     "Portfolio",
   ],
   authors: [{ name: "Antoine Debes" }],
@@ -44,25 +46,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://antoinedebes.com",
-    title: "Antoine Debes - Full Stack Developer",
-    description:
-      "Full-stack developer skilled in Three.js, creating engaging, high-performance, and visually dynamic web experiences.",
-    siteName: "Antoine Debes Portfolio",
+    title: "Antoine Debes — Principal Software Engineer · Web Performance",
+    description,
+    siteName: "Antoine Debes",
     images: [
       {
-        url: "/new-profile-pic.webp",
+        url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Antoine Debes - Full Stack Developer",
+        alt: "Antoine Debes — Principal Software Engineer · Web Performance",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Antoine Debes - Full Stack Developer",
-    description:
-      "Full-stack developer skilled in Three.js, creating engaging, high-performance, and visually dynamic web experiences.",
-    images: ["/new-profile-pic.webp"],
+    title: "Antoine Debes — Principal Software Engineer · Web Performance",
+    description,
+    images: ["/og.png"],
     creator: "@antoine_debes",
     site: "@antoine_debes",
   },
@@ -90,6 +90,32 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Antoine Debes",
+  jobTitle: "Principal Software Engineer",
+  url: "https://antoinedebes.com",
+  image: "https://antoinedebes.com/new-profile-pic.webp",
+  worksFor: {
+    "@type": "Organization",
+    name: "VML",
+  },
+  knowsAbout: [
+    "Web Performance",
+    "Core Web Vitals",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Frontend Architecture",
+  ],
+  email: "mailto:info@antoinedebes.com",
+  sameAs: [
+    "https://github.com/AntoineDebes",
+    "https://www.linkedin.com/in/antoine-debes/",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -98,15 +124,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
       <body

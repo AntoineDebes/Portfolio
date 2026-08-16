@@ -16,51 +16,55 @@ type ProjectsProps = {
 
 const demoItems: Project[] = [
   {
-    title: "Alahli Bank",
+    title: "Alahli Bank (SNB)",
     description:
-      "sitecore headless website with DX tooling, testing, and CI-ready setup.",
+      "Sitecore headless platform built with Next.js for Saudi National Bank — component architecture, multi-market delivery, and performance tuning.",
     href: "https://alahli.com",
-    previewSrc: "/alahli.png",
+    previewSrc: "/alahli.webp",
   },
   {
     title: "First Abu Dhabi Bank",
     description:
-      "Next.js + Sitecore headless starter with DX tooling, testing, and CI-ready setup.",
+      "Next.js + Sitecore JSS headless platform for the UAE's largest bank — design-system components, build pipeline, and Core Web Vitals work.",
     href: "https://firstabudhabi.com",
-    previewSrc: "/fabbank.png",
+    previewSrc: "/fabbank.webp",
   },
   {
     title: "New Murabba",
     description:
-      "Optimizely-powered A/B framework with metrics hooks, feature flags, and guardrails.",
+      "Experimentation platform for the Riyadh giga-project — Optimizely A/B framework, feature flags, and metrics instrumentation.",
     href: "https://newmurabba.com",
-    previewSrc: "/new-murabba.png",
+    previewSrc: "/new-murabba.webp",
   },
   {
     title: "Aldar",
     description:
-      "sitecore headless website with DX tooling, testing, and CI-ready setup.",
+      "Sitecore headless frontend for Abu Dhabi's largest real-estate developer — component library and performance optimization.",
     href: "https://aldar.com",
-    previewSrc: "/aldar.png",
+    previewSrc: "/aldar.webp",
   },
   {
     title: "Alat",
     description:
-      "Payload CMS-powered website with custom theme and integration.",
+      "Payload CMS platform with a custom theme, bespoke integrations, and a performance-first frontend.",
     href: "https://alat.com",
-    previewSrc: "/alat.png",
+    previewSrc: "/alat.webp",
   },
   {
     title: "Expo 2030 Riyadh",
-    description: "Wordpress website with custom theme and integration.",
+    description:
+      "WordPress platform with a custom theme and integrations for Saudi Arabia's Expo 2030 bid.",
     href: "https://www.expo2030riyadh.sa",
-    previewSrc: "/expo.png",
+    previewSrc: "/expo.webp",
   },
 ];
 
 export default function Projects({ items = demoItems }: ProjectsProps) {
   return (
-    <section className="relative md:py-20 py-12 bg-gray-50 dark:bg-black transition-colors duration-300">
+    <section
+      id="projects"
+      className="relative scroll-mt-16 md:py-20 py-12 bg-gray-50 dark:bg-black transition-colors duration-300"
+    >
       <div className="mx-auto max-w-5xl px-6">
         <h2 className="mb-10 text-center text-3xl font-semibold text-gray-900 dark:text-white">
           <SparklesTitle>Projects</SparklesTitle>
