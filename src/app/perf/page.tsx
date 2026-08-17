@@ -54,9 +54,9 @@ function Row({
 }) {
   return (
     <tr className="border-b border-gray-100 last:border-0 dark:border-white/5">
-      <td className="py-3 pr-4 text-base text-gray-700 dark:text-white/75">{label}</td>
+      <td className="py-3 pr-4 text-base text-gray-700 dark:text-white/85">{label}</td>
       <td className="py-3 pr-4 font-mono text-base text-gray-900 tabular-nums dark:text-white">{value}</td>
-      <td className="py-3 pr-4 font-mono text-[13px] text-gray-500 tabular-nums dark:text-white/50">{budget}</td>
+      <td className="py-3 pr-4 font-mono text-[13px] text-gray-500 tabular-nums dark:text-white/65">{budget}</td>
       <td className="py-3">
         <span
           className={`rounded-full px-2.5 py-0.5 text-[13px] font-semibold ${
@@ -82,7 +82,7 @@ export default function PerfPage() {
         <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
           Performance, in public
         </h1>
-        <p className="mt-4 max-w-xl text-[17px] leading-relaxed text-gray-700 dark:text-white/70">
+        <p className="mt-4 max-w-xl text-[17px] leading-relaxed text-gray-700 dark:text-white/85">
           This site claims performance as a specialty, so its own numbers are
           public: the measured weight of the home page as served, the budget
           that CI enforces on every push, and a changelog of what changed —
@@ -100,17 +100,17 @@ export default function PerfPage() {
         <h2 className="mt-12 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
           Scoreboard
         </h2>
-        <p className="mt-1 font-mono text-[13px] text-gray-500 dark:text-white/45">
+        <p className="mt-1 font-mono text-[13px] text-gray-500 dark:text-white/60">
           measured {perf.measuredAt} · gzip, as served · home route
         </p>
         <div className="mt-4 overflow-x-auto rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-white/5">
           <table className="w-full">
             <thead>
               <tr className="border-b border-gray-200 text-left dark:border-white/10">
-                <th className="pb-2 pr-4 text-[13px] font-semibold uppercase tracking-wider text-gray-500 dark:text-white/55">Metric</th>
-                <th className="pb-2 pr-4 text-[13px] font-semibold uppercase tracking-wider text-gray-500 dark:text-white/55">Measured</th>
-                <th className="pb-2 pr-4 text-[13px] font-semibold uppercase tracking-wider text-gray-500 dark:text-white/55">Budget</th>
-                <th className="pb-2 text-[13px] font-semibold uppercase tracking-wider text-gray-500 dark:text-white/55">Status</th>
+                <th className="pb-2 pr-4 text-[13px] font-semibold uppercase tracking-wider text-gray-500 dark:text-white/70">Metric</th>
+                <th className="pb-2 pr-4 text-[13px] font-semibold uppercase tracking-wider text-gray-500 dark:text-white/70">Measured</th>
+                <th className="pb-2 pr-4 text-[13px] font-semibold uppercase tracking-wider text-gray-500 dark:text-white/70">Budget</th>
+                <th className="pb-2 text-[13px] font-semibold uppercase tracking-wider text-gray-500 dark:text-white/70">Status</th>
               </tr>
             </thead>
             <tbody>
@@ -153,7 +153,7 @@ export default function PerfPage() {
             </tbody>
           </table>
         </div>
-        <p className="mt-3 max-w-xl text-sm leading-relaxed text-gray-500 dark:text-white/45">
+        <p className="mt-3 max-w-xl text-sm leading-relaxed text-gray-500 dark:text-white/60">
           An honest caveat: ~102 kB of the JavaScript is the Next.js 15 App
           Router framework baseline (React, router, hydration). The parts I
           control add {Math.max(0, Math.round(perf.firstLoadJsKb - 102))} kB on
@@ -164,7 +164,7 @@ export default function PerfPage() {
         <h2 className="mt-12 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
           How it&apos;s enforced
         </h2>
-        <ul className="mt-4 max-w-xl list-disc space-y-2 pl-5 text-base leading-relaxed text-gray-700 dark:text-white/70">
+        <ul className="mt-4 max-w-xl list-disc space-y-2 pl-5 text-base leading-relaxed text-gray-700 dark:text-white/85">
           <li>
             Every push runs{" "}
             <a
@@ -190,7 +190,7 @@ export default function PerfPage() {
         <h2 className="mt-12 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
           Performance changelog
         </h2>
-        <p className="mt-2 max-w-xl text-base text-gray-600 dark:text-white/60">
+        <p className="mt-2 max-w-xl text-base text-gray-600 dark:text-white/75">
           Wins and regressions both — publishing only the wins is marketing,
           not engineering.
         </p>
@@ -200,8 +200,8 @@ export default function PerfPage() {
               key={i}
               className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-white/5"
             >
-              <p className="font-mono text-[13px] text-gray-500 dark:text-white/45">{c.date}</p>
-              <p className="mt-1 text-base leading-relaxed text-gray-800 dark:text-white/80">{c.entry}</p>
+              <p className="font-mono text-[13px] text-gray-500 dark:text-white/60">{c.date}</p>
+              <p className="mt-1 text-base leading-relaxed text-gray-800 dark:text-white/90">{c.entry}</p>
               <p className="mt-2 font-mono text-[13px] font-semibold text-emerald-700 dark:text-emerald-400">{c.delta}</p>
             </li>
           ))}

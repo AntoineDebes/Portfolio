@@ -1,10 +1,10 @@
 {
-  "measuredAt": "2026-08-16",
+  "measuredAt": "2026-08-17",
   "firstLoadJsKb": 106.5,
   "worstRouteJsKb": 106.5,
   "worstRoute": "/",
-  "htmlKb": 16.4,
-  "cssKb": 11.1,
+  "htmlKb": 16.5,
+  "cssKb": 10.9,
   "fontsKb": 143,
   "homeImagesKb": 177.1,
   "renderBlockingRequests": 1,

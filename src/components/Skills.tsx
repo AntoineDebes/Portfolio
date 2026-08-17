@@ -40,7 +40,7 @@ export default function Skills() {
             {group.items.map((item) => (
               <li
                 key={item}
-                className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1 text-[15px] text-gray-700 dark:border-white/10 dark:bg-white/5 dark:text-white/80"
+                className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1 text-[15px] text-gray-700 dark:border-white/10 dark:bg-white/5 dark:text-white/90"
               >
                 {item}
               </li>

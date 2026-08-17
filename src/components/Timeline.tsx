@@ -38,7 +38,7 @@ const roles: Role[] = [
 export default function Timeline() {
   return (
     <div>
-      <p className="mb-8 max-w-xl text-base text-gray-600 dark:text-white/60">
+      <p className="mb-8 max-w-xl text-base text-gray-600 dark:text-white/75">
         One agency, three names — Mirum became Wunderman Thompson became VML
         through successive mergers. Same team, growing scope.
       </p>
@@ -52,16 +52,16 @@ export default function Timeline() {
             <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                 {role.title}
-                <span className="font-normal text-gray-600 dark:text-white/60">
+                <span className="font-normal text-gray-600 dark:text-white/75">
                   {" "}
                   · {role.org}
                 </span>
               </h3>
-              <span className="shrink-0 font-mono text-[13px] text-gray-500 tabular-nums dark:text-white/50">
+              <span className="shrink-0 font-mono text-[13px] text-gray-500 tabular-nums dark:text-white/65">
                 {role.period}
               </span>
             </div>
-            <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-gray-600 dark:text-white/70">
+            <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-gray-600 dark:text-white/85">
               {role.description}
             </p>
             <ul className="mt-3 flex flex-wrap gap-2" aria-label="Technologies">

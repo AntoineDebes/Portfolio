@@ -62,7 +62,7 @@ export default function ScrollSpyNav() {
                   className={`text-[13px] font-semibold uppercase tracking-widest transition-colors duration-200 ${
                     isActive
                       ? "text-gray-900 dark:text-white"
-                      : "text-gray-500 group-hover:text-gray-900 dark:text-white/55 dark:group-hover:text-white"
+                      : "text-gray-500 group-hover:text-gray-900 dark:text-white/70 dark:group-hover:text-white"
                   }`}
                 >
                   {label}

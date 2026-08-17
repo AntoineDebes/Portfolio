@@ -67,7 +67,7 @@ export default function InpDemo() {
               className={`cursor-pointer rounded-md border px-3 py-2 font-mono text-base transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-emerald-500 ${
                 blockMs === ms
                   ? "border-emerald-600 bg-emerald-600/10 text-emerald-800 dark:border-emerald-400 dark:bg-emerald-400/10 dark:text-emerald-300"
-                  : "border-gray-300 text-gray-700 hover:border-gray-500 dark:border-white/15 dark:text-white/70 dark:hover:border-white/40"
+                  : "border-gray-300 text-gray-700 hover:border-gray-500 dark:border-white/15 dark:text-white/85 dark:hover:border-white/40"
               }`}
             >
               <input
@@ -99,13 +99,13 @@ export default function InpDemo() {
       <div aria-live="polite" className="mt-5 min-h-14">
         {result && rating && (
           <div className="rounded-md bg-gray-50 p-4 font-mono text-base dark:bg-white/5">
-            <p className="text-gray-700 dark:text-white/75">
+            <p className="text-gray-700 dark:text-white/85">
               requested block:{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
                 {result.requested} ms
               </span>
             </p>
-            <p className="mt-1 text-gray-700 dark:text-white/75">
+            <p className="mt-1 text-gray-700 dark:text-white/85">
               input → next painted frame:{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
                 {result.measured} ms
@@ -118,7 +118,7 @@ export default function InpDemo() {
         )}
       </div>
 
-      <p className="mt-3 text-sm leading-relaxed text-gray-500 dark:text-white/45">
+      <p className="mt-3 text-sm leading-relaxed text-gray-500 dark:text-white/60">
         INP thresholds: good ≤ 200 ms · needs improvement ≤ 500 ms · poor &gt;
         500 ms. Notice the measured number is always a bit higher than the
         requested block — input delay and presentation time are part of the

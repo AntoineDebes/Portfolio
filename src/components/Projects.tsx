@@ -95,7 +95,7 @@ function ProjectCard({ title, description, href, previewSrc }: Project) {
           </svg>
         </span>
         {description ? (
-          <span className="mt-2 text-[15px] leading-relaxed text-gray-600 dark:text-white/70">
+          <span className="mt-2 text-[15px] leading-relaxed text-gray-600 dark:text-white/85">
             {description}
           </span>
         ) : null}

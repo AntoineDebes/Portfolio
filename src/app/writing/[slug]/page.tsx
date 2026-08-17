@@ -113,7 +113,7 @@ export default async function PostPage({ params }: Props) {
             <h1 className="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-4xl">
               {post.title}
             </h1>
-            <p className="mt-4 font-mono text-[13px] text-gray-500 tabular-nums dark:text-white/50">
+            <p className="mt-4 font-mono text-[13px] text-gray-500 tabular-nums dark:text-white/65">
               {formatDate(post.date)} · {post.metadata.readingTime} min read ·{" "}
               {post.tags.join(" · ")}
             </p>
@@ -126,7 +126,7 @@ export default async function PostPage({ params }: Props) {
         <footer className="mt-14 border-t border-gray-200 pt-8 dark:border-white/10">
           {related.length > 0 && (
             <nav aria-label="More writing" className="mb-10">
-              <h2 className="text-[13px] font-semibold uppercase tracking-widest text-gray-500 dark:text-white/55">
+              <h2 className="text-[13px] font-semibold uppercase tracking-widest text-gray-500 dark:text-white/70">
                 More writing
               </h2>
               <ul className="mt-4 space-y-2">
@@ -143,7 +143,7 @@ export default async function PostPage({ params }: Props) {
               </ul>
             </nav>
           )}
-          <p className="text-base text-gray-600 dark:text-white/65">
+          <p className="text-base text-gray-600 dark:text-white/80">
             Thoughts, corrections, or a waterfall you want a second opinion on?{" "}
             <a
               href="mailto:info@antoinedebes.com"

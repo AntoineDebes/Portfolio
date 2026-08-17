@@ -46,7 +46,7 @@ export default function WritingIndex() {
         <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
           Writing
         </h1>
-        <p className="mt-3 max-w-xl text-[17px] leading-relaxed text-gray-600 dark:text-white/65">
+        <p className="mt-3 max-w-xl text-[17px] leading-relaxed text-gray-600 dark:text-white/80">
           Web performance, Next.js, and the measurable side of frontend
           engineering. Everything here is verifiable — often against this very
           site. Subscribe via{" "}
@@ -69,11 +69,11 @@ export default function WritingIndex() {
                   <h2 className="text-2xl font-semibold text-gray-900 group-hover:text-emerald-700 dark:text-white dark:group-hover:text-emerald-400">
                     {post.title}
                   </h2>
-                  <span className="font-mono text-[13px] text-gray-500 tabular-nums dark:text-white/50">
+                  <span className="font-mono text-[13px] text-gray-500 tabular-nums dark:text-white/65">
                     {formatDate(post.date)} · {post.metadata.readingTime} min
                   </span>
                 </div>
-                <p className="mt-3 max-w-2xl text-base leading-relaxed text-gray-600 dark:text-white/70">
+                <p className="mt-3 max-w-2xl text-base leading-relaxed text-gray-600 dark:text-white/85">
                   {post.description}
                 </p>
               </Link>

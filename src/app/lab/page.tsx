@@ -28,7 +28,7 @@ export default function LabPage() {
         <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
           Lab
         </h1>
-        <p className="mt-3 max-w-xl text-[17px] leading-relaxed text-gray-700 dark:text-white/70">
+        <p className="mt-3 max-w-xl text-[17px] leading-relaxed text-gray-700 dark:text-white/85">
           Reading about performance metrics is one thing; feeling them is
           better. Small, self-contained experiments — more to come.
         </p>
@@ -36,7 +36,7 @@ export default function LabPage() {
         <h2 className="mt-12 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
           What does a slow INP feel like?
         </h2>
-        <p className="mt-2 mb-6 max-w-xl text-base leading-relaxed text-gray-600 dark:text-white/65">
+        <p className="mt-2 mb-6 max-w-xl text-base leading-relaxed text-gray-600 dark:text-white/80">
           Interaction to Next Paint measures the time from your input to the
           next frame the browser actually paints. This demo blocks the main
           thread for a duration you choose, then measures the real gap — try

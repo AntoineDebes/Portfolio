@@ -23,7 +23,7 @@ export default function SocialIcons() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={label}
-            className="block text-gray-500 transition-colors hover:text-gray-900 dark:text-white/50 dark:hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-500"
+            className="block text-gray-500 transition-colors hover:text-gray-900 dark:text-white/65 dark:hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-500"
           >
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d={path} />
@@ -35,7 +35,7 @@ export default function SocialIcons() {
         <a
           href="mailto:info@antoinedebes.com"
           aria-label="Email"
-          className="block text-gray-500 transition-colors hover:text-gray-900 dark:text-white/50 dark:hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-500"
+          className="block text-gray-500 transition-colors hover:text-gray-900 dark:text-white/65 dark:hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-500"
         >
           <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -46,7 +46,7 @@ export default function SocialIcons() {
         <a
           href="/feed.xml"
           aria-label="RSS feed"
-          className="block text-gray-500 transition-colors hover:text-gray-900 dark:text-white/50 dark:hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-500"
+          className="block text-gray-500 transition-colors hover:text-gray-900 dark:text-white/65 dark:hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-500"
         >
           <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6.18 15.64a2.18 2.18 0 012.18 2.18C8.36 19 7.38 20 6.18 20 5 20 4 19 4 17.82a2.18 2.18 0 012.18-2.18zM4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 004 7.27zm0 5.66a9.9 9.9 0 019.9 9.9h-2.83A7.07 7.07 0 004 12.93z" />

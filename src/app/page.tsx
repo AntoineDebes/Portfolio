@@ -20,7 +20,9 @@ function Section({
     <section id={id} className="scroll-mt-24 pt-20 first:pt-14 lg:pt-24 lg:first:pt-0">
       {/* Opaque, not translucent: a semi-transparent sticky bar lets the
           content ghost through it as you scroll, which reads as text fading
-          into the background. Solid also avoids backdrop-filter's cost. */}
+          into the background. Solid also avoids the blur-behind repaint.
+          (Avoid writing utility-shaped names in comments — Tailwind scans
+          this file and would emit the matching class as dead CSS.) */}
       <h2 className="sticky top-0 z-20 -mx-6 mb-8 bg-gray-50 px-6 py-4 text-[15px] font-bold uppercase tracking-widest text-emerald-700 dark:bg-black dark:text-emerald-400 lg:static lg:mx-0 lg:bg-transparent lg:px-0 lg:py-0 dark:lg:bg-transparent">
         {title}
       </h2>
@@ -37,9 +39,14 @@ export default function Home() {
         aria-hidden="true"
         className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_1px_1px,rgba(17,24,28,0.08)_1px,transparent_0)] bg-[size:28px_28px] dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.06)_1px,transparent_0)]"
       />
+      {/* Glow drawn as a radial gradient rather than a blurred box: a fixed
+          element with filter: blur() stays composited for the life of the page
+          and has to be re-rasterised as you scroll, which is a known trigger
+          for text repaint artefacts on some GPU/driver combinations. A
+          gradient is soft by construction and costs no filter pass. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed -top-32 left-1/4 -z-10 h-[380px] w-[620px] max-w-full rounded-full bg-emerald-500/[0.07] blur-3xl dark:bg-emerald-400/[0.06]"
+        className="pointer-events-none fixed -top-40 left-1/4 -z-10 h-[440px] w-[700px] max-w-full bg-[radial-gradient(closest-side,rgba(16,185,129,0.10),transparent)] dark:bg-[radial-gradient(closest-side,rgba(52,211,153,0.09),transparent)]"
       />
 
       <div className="mx-auto min-h-svh max-w-6xl px-6 md:px-10 lg:flex lg:gap-16">
@@ -47,7 +54,7 @@ export default function Home() {
 
         <main id="content" className="flex-1 pb-24 lg:py-20">
           <Section id="about" title="About">
-            <div className="max-w-xl space-y-4 text-[17px] leading-relaxed text-gray-700 dark:text-white/75">
+            <div className="max-w-xl space-y-4 text-[17px] leading-relaxed text-gray-700 dark:text-white/85">
               <p>
                 I&apos;m a Principal Software Engineer at{" "}
                 <a
@@ -71,8 +78,8 @@ export default function Home() {
                 Vitals, bundle bytes, main-thread time — and about the craft
                 you can feel in the details.
               </p>
-              <p className="text-base text-gray-600 dark:text-white/55">
-                <span className="font-semibold uppercase tracking-wider text-gray-500 dark:text-white/55">
+              <p className="text-base text-gray-600 dark:text-white/70">
+                <span className="font-semibold uppercase tracking-wider text-gray-500 dark:text-white/70">
                   Now:
                 </span>{" "}
                 rebuilding this site in public as its own performance case
@@ -108,14 +115,14 @@ export default function Home() {
             <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               Get in touch
             </h2>
-            <p className="mt-3 max-w-md text-base leading-relaxed text-gray-600 dark:text-white/65">
+            <p className="mt-3 max-w-md text-base leading-relaxed text-gray-600 dark:text-white/80">
               Performance audit, a slow app that needs a diagnosis, or just
               want to talk shop about Core Web Vitals — my inbox is open.
             </p>
             <div className="mt-5">
               <CopyEmailButton />
             </div>
-            <p className="mt-12 max-w-md text-sm leading-relaxed text-gray-500 dark:text-white/55">
+            <p className="mt-12 max-w-md text-sm leading-relaxed text-gray-500 dark:text-white/70">
               Designed &amp; built by Antoine Debes. Next.js + Tailwind,
               statically exported, served from Netlify&apos;s CDN. No cookies,
               no trackers, no consent banner — just ~3 kB of first-party Web

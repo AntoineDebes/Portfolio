@@ -18,7 +18,7 @@ export default function NotFound() {
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
           This page doesn&apos;t exist
         </h1>
-        <p className="mt-4 max-w-lg text-[17px] leading-relaxed text-gray-600 dark:text-white/70">
+        <p className="mt-4 max-w-lg text-[17px] leading-relaxed text-gray-600 dark:text-white/85">
           The link may be out of date, or the page may have moved during the
           site&apos;s rebuild.
         </p>

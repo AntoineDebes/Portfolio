@@ -20,16 +20,16 @@ export default function WritingSection() {
             <h3 className="text-xl font-semibold text-gray-900 group-hover:text-emerald-700 dark:text-white dark:group-hover:text-emerald-400">
               {post.title}
             </h3>
-            <span className="shrink-0 font-mono text-[13px] text-gray-500 tabular-nums dark:text-white/50">
+            <span className="shrink-0 font-mono text-[13px] text-gray-500 tabular-nums dark:text-white/65">
               {post.metadata.readingTime} min
             </span>
           </div>
-          <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-gray-600 dark:text-white/70">
+          <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-gray-600 dark:text-white/85">
             {post.description}
           </p>
         </Link>
       ))}
-      <p className="pt-2 text-base text-gray-600 dark:text-white/60">
+      <p className="pt-2 text-base text-gray-600 dark:text-white/75">
         More on the way — LCP case studies, Next.js bundle forensics, and INP
         deep dives.{" "}
         <Link
