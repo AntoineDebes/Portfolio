@@ -145,7 +145,7 @@ export default function PerfPage() {
                 pass={perf.renderBlockingRequests <= b.renderBlockingRequests}
               />
               <Row
-                label="Third-party requests"
+                label="Third-party requests before paint"
                 value={`${perf.thirdPartyRequests}`}
                 budget={`${b.thirdPartyRequests}`}
                 pass={perf.thirdPartyRequests <= b.thirdPartyRequests}
@@ -182,8 +182,12 @@ export default function PerfPage() {
           </li>
           <li>
             Telemetry: a ~3 kB first-party beacon reports anonymous LCP, INP,
-            and CLS (no cookies, no identifiers, no third parties). That&apos;s the
-            field data behind future case studies.
+            and CLS — that&apos;s the field data behind future case studies.
+            Google Analytics also runs, loaded <code>afterInteractive</code> so
+            it stays off the critical path. It is by some distance the heaviest
+            thing this site ships, and the honest trade for knowing which
+            articles people actually read; the numbers above measure the
+            critical path, which it deliberately sits outside of.
           </li>
         </ul>
 

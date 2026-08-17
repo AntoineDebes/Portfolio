@@ -16,6 +16,9 @@ const BUDGET = {
   cssKb: 20,
   homeImagesKb: 300,
   renderBlockingRequests: 1, // the single same-origin stylesheet
+  // Third parties referenced by the served HTML, i.e. on the critical path.
+  // Analytics is injected client-side after hydration, so it is deliberately
+  // outside this number — see the note on /perf.
   thirdPartyRequests: 0,
 };
 

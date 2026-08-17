@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import VitalsReporter from "@/components/VitalsReporter";
 import Reveal from "@/components/Reveal";
+import Analytics from "@/components/Analytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -209,6 +210,7 @@ export default function RootLayout({
         {children}
         <Reveal />
         <VitalsReporter />
+        <Analytics />
       </body>
     </html>
   );

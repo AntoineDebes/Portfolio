@@ -124,9 +124,9 @@ export default function Home() {
             </div>
             <p className="mt-12 max-w-md text-sm leading-relaxed text-gray-500 dark:text-white/70">
               Designed &amp; built by Antoine Debes. Next.js + Tailwind,
-              statically exported, served from Netlify&apos;s CDN. No cookies,
-              no trackers, no consent banner — just ~3 kB of first-party Web
-              Vitals telemetry.{" "}
+              statically exported, served from Netlify&apos;s CDN. Telemetry is
+              a ~3 kB first-party Web Vitals beacon plus Google Analytics,
+              loaded after the page is interactive.{" "}
               <Link
                 href="/perf/"
                 className="text-emerald-700 hover:underline dark:text-emerald-400"
