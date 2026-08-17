@@ -136,11 +136,22 @@ const personJsonLd = {
   jobTitle: "Principal Software Engineer",
   description,
   url: "https://antoinedebes.com",
-  image: "https://antoinedebes.com/new-profile-pic.webp",
+  image: "https://antoinedebes.com/profile-512.webp",
   worksFor: {
     "@type": "Organization",
     name: "VML",
     url: "https://www.vml.com",
+  },
+  // Several other people share this name in search results (an art director
+  // in Lille, a trail runner). Location + employer are the disambiguators
+  // that let Google resolve this page to the right entity.
+  homeLocation: {
+    "@type": "Place",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Beirut",
+      addressCountry: "LB",
+    },
   },
   knowsAbout: [
     "Web Performance",

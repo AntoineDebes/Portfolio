@@ -10,10 +10,11 @@ export default function Sidebar() {
       <div>
         <div className="flex items-start justify-between">
           <img
-            src="/new-profile-pic.webp"
+            src="/profile.webp"
             alt="Antoine Debes"
-            width={200}
-            height={217}
+            width={256}
+            height={256}
+            fetchPriority="high"
             className="h-16 w-16 rounded-full object-cover ring-2 ring-emerald-500/40 ring-offset-2 ring-offset-gray-50 dark:ring-offset-black"
           />
           <ThemeToggle />

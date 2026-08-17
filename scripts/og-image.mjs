@@ -5,7 +5,31 @@ import sharp from "sharp";
 import { mkdir } from "node:fs/promises";
 import path from "node:path";
 
-const PUBLIC = new URL("../public/", import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1");
+const ROOT = new URL("../", import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1");
+const PUBLIC = path.join(ROOT, "public");
+const SOURCE = path.join(ROOT, "assets", "profile-source.jpg");
+
+// Circular portrait composited into the share card — a face makes a personal
+// OG image far more clickable than type alone.
+const PORTRAIT = 260;
+async function portrait() {
+  const face = await sharp(SOURCE)
+    .resize(PORTRAIT, PORTRAIT, { fit: "cover", position: "top" })
+    .toBuffer();
+  const mask = Buffer.from(
+    `<svg width="${PORTRAIT}" height="${PORTRAIT}"><circle cx="${PORTRAIT / 2}" cy="${PORTRAIT / 2}" r="${PORTRAIT / 2}" fill="#fff"/></svg>`
+  );
+  const ring = Buffer.from(
+    `<svg width="${PORTRAIT}" height="${PORTRAIT}" xmlns="http://www.w3.org/2000/svg"><circle cx="${PORTRAIT / 2}" cy="${PORTRAIT / 2}" r="${PORTRAIT / 2 - 3}" fill="none" stroke="#3fd68f" stroke-width="5"/></svg>`
+  );
+  return sharp(face)
+    .composite([
+      { input: mask, blend: "dest-in" },
+      { input: ring },
+    ])
+    .png()
+    .toBuffer();
+}
 
 const esc = (s) => s.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 
@@ -64,8 +88,13 @@ const pages = [
 ];
 
 await mkdir(path.join(PUBLIC, "og"), { recursive: true });
+const face = await portrait();
+
 for (const page of pages) {
   const dest = path.join(PUBLIC, page.file);
-  await sharp(Buffer.from(card(page))).png().toFile(dest);
-  console.log(`og-image: ${page.file} (1200x630)`);
+  await sharp(Buffer.from(card(page)))
+    .composite([{ input: face, top: 185, left: 850 }])
+    .png()
+    .toFile(dest);
+  console.log(`og-image: ${page.file} (1200x630, with portrait)`);
 }
