@@ -61,8 +61,8 @@ const pages = [
   {
     file: "og.png",
     heading: "Antoine Debes",
-    accent: "Principal Software Engineer",
-    sub: "Web performance & frontend architecture - Next.js, React, Core Web Vitals",
+    accent: "Full-Stack Engineer",
+    sub: "Web performance, end to end - Next.js, React, Node.js, Core Web Vitals",
   },
   {
     file: "og/writing.png",

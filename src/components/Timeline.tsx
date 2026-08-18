@@ -10,7 +10,7 @@ type Role = {
 
 const roles: Role[] = [
   {
-    title: "Principal Software Engineer",
+    title: "Principal Front-End Engineer",
     org: "VML",
     period: "Feb 2024 — Present",
     description:
@@ -18,19 +18,19 @@ const roles: Role[] = [
     tags: ["Next.js", "TypeScript", "Sitecore JSS", "Web Performance"],
   },
   {
-    title: "Senior Software Engineer",
+    title: "Senior Full-Stack Engineer",
     org: "Wunderman Thompson (became VML)",
     period: "Oct 2023 — Jan 2024",
     description:
-      "Implemented front-end solutions in TypeScript/Next.js, optimized build and release flows, and contributed to design systems and experimentation tooling.",
+      "Delivered features across the stack in TypeScript/Next.js and Node, optimized build and release flows, and contributed to design systems and experimentation tooling.",
     tags: ["Next.js", "TypeScript", "Design Systems"],
   },
   {
-    title: "Mid-Senior Software Engineer",
+    title: "Mid-Senior Full-Stack Engineer",
     org: "Mirum Agency (became Wunderman Thompson)",
     period: "Oct 2022 — Sep 2023",
     description:
-      "Built modern, responsive interfaces, introduced animation best practices with GSAP and Three.js, and streamlined team workflows with tooling and testing improvements.",
+      "Built full-stack features — responsive interfaces backed by CMS and API work — introduced animation best practices with GSAP and Three.js, and streamlined team workflows with tooling and testing improvements.",
     tags: ["React", "GSAP", "Three.js"],
   },
 ];

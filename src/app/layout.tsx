@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "Principal Software Engineer specializing in web performance and frontend architecture — Next.js, React, Core Web Vitals. I make React apps fast.";
+  "Full-Stack Engineer specializing in web performance — Next.js, React, Node.js, Core Web Vitals. I build fast, measurable web platforms end to end.";
 
 export const metadata: Metadata = {
   title: {
-    default: "Antoine Debes — Principal Software Engineer · Web Performance",
+    default: "Antoine Debes — Full-Stack Engineer · Web Performance",
     template: "%s · Antoine Debes",
   },
   description,
@@ -30,7 +30,8 @@ export const metadata: Metadata = {
     "React",
     "Next.js",
     "Frontend Architecture",
-    "Principal Software Engineer",
+    "Full-Stack Engineer",
+    "Principal Front-End Engineer",
     "TypeScript",
     "Portfolio",
   ],
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://antoinedebes.com",
-    title: "Antoine Debes — Principal Software Engineer · Web Performance",
+    title: "Antoine Debes — Full-Stack Engineer · Web Performance",
     description,
     siteName: "Antoine Debes",
     images: [
@@ -59,13 +60,13 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Antoine Debes — Principal Software Engineer · Web Performance",
+        alt: "Antoine Debes — Full-Stack Engineer · Web Performance",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Antoine Debes — Principal Software Engineer · Web Performance",
+    title: "Antoine Debes — Full-Stack Engineer · Web Performance",
     description,
     images: ["/og.png"],
   },
@@ -134,7 +135,7 @@ const personJsonLd = {
   name: "Antoine Debes",
   givenName: "Antoine",
   familyName: "Debes",
-  jobTitle: "Principal Software Engineer",
+  jobTitle: "Principal Front-End Engineer",
   description,
   url: "https://antoinedebes.com",
   image: "https://antoinedebes.com/profile-512.webp",
@@ -162,6 +163,8 @@ const personJsonLd = {
     "React",
     "Next.js",
     "TypeScript",
+    "Node.js",
+    "Full-Stack Development",
     "Frontend Architecture",
     "Sitecore Headless",
   ],

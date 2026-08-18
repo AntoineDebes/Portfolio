@@ -23,11 +23,11 @@ export default function Sidebar() {
           Antoine Debes
         </h1>
         <h2 className="mt-2 text-xl font-medium text-gray-800 dark:text-white/90">
-          Principal Software Engineer
+          Full-Stack Engineer
         </h2>
         <p className="mt-3 max-w-xs text-[15px] leading-relaxed text-gray-600 dark:text-white/75">
-          I make React apps fast — web performance &amp; frontend architecture
-          for Next.js, measured in Core Web Vitals.
+          I build fast web platforms end to end — Next.js, React and Node,
+          measured in Core Web Vitals.
         </p>
         <ScrollSpyNav />
       </div>

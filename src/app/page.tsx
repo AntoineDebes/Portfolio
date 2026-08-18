@@ -56,7 +56,8 @@ export default function Home() {
           <Section id="about" title="About">
             <div className="max-w-xl space-y-4 text-[17px] leading-relaxed text-gray-700 dark:text-white/85">
               <p>
-                I&apos;m a Principal Software Engineer at{" "}
+                I&apos;m a full-stack engineer, currently Principal
+                Front-End Engineer at{" "}
                 <a
                   href="https://www.vml.com"
                   target="_blank"
@@ -71,9 +72,11 @@ export default function Home() {
                 New Murabba, and the Expo 2030 Riyadh bid among them.
               </p>
               <p>
-                My specialty is web performance: making React and Next.js
-                applications fast, and keeping them that way with budgets that
-                fail the build instead of guidelines that die in a wiki. I care
+                I work across the stack — React and Next.js on the front,
+                Node and headless CMS platforms behind them — and my specialty
+                is web performance: making those applications fast, and keeping
+                them that way with budgets that fail the build instead of
+                guidelines that die in a wiki. I care
                 about the parts of engineering you can measure — Core Web
                 Vitals, bundle bytes, main-thread time — and about the craft
                 you can feel in the details.

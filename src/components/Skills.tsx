@@ -2,22 +2,20 @@ import React from "react";
 
 const groups: { label: string; items: string[] }[] = [
   {
-    label: "Core",
-    items: ["TypeScript", "JavaScript", "React", "Next.js", "Node.js"],
+    label: "Frontend",
+    items: ["TypeScript", "JavaScript", "React", "Next.js", "Tailwind CSS", "SASS"],
   },
   {
-    label: "Styling & Motion",
-    items: ["Tailwind CSS", "SASS", "GSAP", "Three.js"],
+    label: "Backend & Data",
+    items: ["Node.js", "C# / .NET", "PHP", "MySQL", "GraphQL"],
   },
   {
     label: "Platforms & CMS",
-    items: [
-      "Sitecore Headless",
-      "Payload CMS",
-      "WordPress",
-      "Optimizely",
-      "GraphQL",
-    ],
+    items: ["Sitecore Headless", "Payload CMS", "WordPress", "Optimizely"],
+  },
+  {
+    label: "Motion & 3D",
+    items: ["GSAP", "Three.js"],
   },
   {
     label: "Tooling & Infra",
