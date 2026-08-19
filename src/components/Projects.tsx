@@ -15,42 +15,42 @@ const demoItems: Project[] = [
   {
     title: "Alahli Bank (SNB)",
     description:
-      "Sitecore headless platform built with Next.js for Saudi National Bank — component architecture, multi-market delivery, and performance tuning.",
+      "Digital banking platform for Saudi National Bank, delivered on a headless architecture across multiple markets.",
     href: "https://alahli.com",
     previewSrc: "/alahli.webp",
   },
   {
     title: "First Abu Dhabi Bank",
     description:
-      "Next.js + Sitecore JSS headless platform for the UAE's largest bank — design-system components, build pipeline, and Core Web Vitals work.",
+      "Enterprise web platform for the UAE's largest bank, built on a shared design system and engineered for performance.",
     href: "https://firstabudhabi.com",
     previewSrc: "/fabbank.webp",
   },
   {
     title: "New Murabba",
     description:
-      "Experimentation platform for the Riyadh giga-project — Optimizely A/B framework, feature flags, and metrics instrumentation.",
+      "Experimentation platform for the Riyadh giga-project — controlled rollouts, A/B testing, and analytics at scale.",
     href: "https://newmurabba.com",
     previewSrc: "/new-murabba.webp",
   },
   {
     title: "Aldar",
     description:
-      "Sitecore headless frontend for Abu Dhabi's largest real-estate developer — component library and performance optimization.",
+      "Corporate platform for Abu Dhabi's largest real-estate developer, engineered for performance at scale.",
     href: "https://aldar.com",
     previewSrc: "/aldar.webp",
   },
   {
     title: "Alat",
     description:
-      "Payload CMS platform with a custom theme, bespoke integrations, and a performance-first frontend.",
+      "Brand platform delivered end to end, from content architecture to a performance-first frontend.",
     href: "https://alat.com",
     previewSrc: "/alat.webp",
   },
   {
     title: "Expo 2030 Riyadh",
     description:
-      "WordPress platform with a custom theme and integrations for Saudi Arabia's Expo 2030 bid.",
+      "Official platform for Saudi Arabia's Expo 2030 bid.",
     href: "https://www.expo2030riyadh.sa",
     previewSrc: "/expo.webp",
   },

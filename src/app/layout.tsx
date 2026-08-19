@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "Full-Stack Engineer specializing in web performance — Next.js, React, Node.js, Core Web Vitals. I build fast, measurable web platforms end to end.";
+  "Full-Stack Engineer specializing in web performance. I architect and build fast, scalable web platforms — and prove it with numbers.";
 
 export const metadata: Metadata = {
   title: {

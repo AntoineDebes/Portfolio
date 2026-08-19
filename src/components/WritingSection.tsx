@@ -30,8 +30,7 @@ export default function WritingSection() {
         </Link>
       ))}
       <p className="pt-2 text-base text-gray-600 dark:text-white/75">
-        More on the way — LCP case studies, Next.js bundle forensics, and INP
-        deep dives.{" "}
+        More essays in the pipeline.{" "}
         <Link
           href="/writing/"
           className="font-medium text-emerald-700 hover:underline dark:text-emerald-400"

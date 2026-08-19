@@ -26,8 +26,8 @@ export default function Sidebar() {
           Full-Stack Engineer
         </h2>
         <p className="mt-3 max-w-xs text-[15px] leading-relaxed text-gray-600 dark:text-white/75">
-          I build fast web platforms end to end — Next.js, React and Node,
-          measured in Core Web Vitals.
+          I architect and build fast, scalable web platforms for global
+          brands — and prove it with numbers.
         </p>
         <ScrollSpyNav />
       </div>

@@ -14,7 +14,7 @@ const roles: Role[] = [
     org: "VML",
     period: "Feb 2024 — Present",
     description:
-      "Leading front-end strategy across Sitecore Headless and experimentation stacks — architecture, performance, 3D/GSAP animation direction, and AI-assisted development workflows for enterprise clients across the Gulf.",
+      "Leading front-end architecture and performance strategy for enterprise platforms — setting engineering standards, directing motion and 3D work, and bringing AI-assisted workflows into delivery.",
     tags: ["Next.js", "TypeScript", "Sitecore JSS", "Web Performance"],
   },
   {
@@ -22,7 +22,7 @@ const roles: Role[] = [
     org: "Wunderman Thompson (became VML)",
     period: "Oct 2023 — Jan 2024",
     description:
-      "Delivered features across the stack in TypeScript/Next.js and Node, optimized build and release flows, and contributed to design systems and experimentation tooling.",
+      "Delivered full-stack features in TypeScript, Next.js, and Node; strengthened design systems, experimentation tooling, and release pipelines.",
     tags: ["Next.js", "TypeScript", "Design Systems"],
   },
   {
@@ -30,7 +30,7 @@ const roles: Role[] = [
     org: "Mirum Agency (became Wunderman Thompson)",
     period: "Oct 2022 — Sep 2023",
     description:
-      "Built full-stack features — responsive interfaces backed by CMS and API work — introduced animation best practices with GSAP and Three.js, and streamlined team workflows with tooling and testing improvements.",
+      "Built end-to-end product features — interfaces, CMS integrations, and APIs — and raised the bar on motion, tooling, and testing across the team.",
     tags: ["React", "GSAP", "Three.js"],
   },
 ];

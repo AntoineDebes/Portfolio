@@ -56,7 +56,7 @@ export default function Home() {
           <Section id="about" title="About">
             <div className="max-w-xl space-y-4 text-[17px] leading-relaxed text-gray-700 dark:text-white/85">
               <p>
-                I&apos;m a full-stack engineer, currently Principal
+                I&apos;m a full-stack engineer — currently Principal
                 Front-End Engineer at{" "}
                 <a
                   href="https://www.vml.com"
@@ -66,27 +66,24 @@ export default function Home() {
                 >
                   VML
                 </a>
-                , where I lead front-end work on Sitecore headless platforms
-                and experimentation stacks for banks and giga-projects across
-                the Gulf — Saudi National Bank, First Abu Dhabi Bank, Aldar,
-                New Murabba, and the Expo 2030 Riyadh bid among them.
+                 — where I lead the engineering of digital platforms
+                for enterprise clients in banking, real estate, and
+                national-scale programs: Saudi National Bank, First Abu Dhabi
+                Bank, Aldar, New Murabba, and Expo 2030 Riyadh among them.
               </p>
               <p>
-                I work across the stack — React and Next.js on the front,
-                Node and headless CMS platforms behind them — and my specialty
-                is web performance: making those applications fast, and keeping
-                them that way with budgets that fail the build instead of
-                guidelines that die in a wiki. I care
-                about the parts of engineering you can measure — Core Web
-                Vitals, bundle bytes, main-thread time — and about the craft
-                you can feel in the details.
+                My specialty is web performance. I treat speed as an
+                engineering discipline — designed in from the start, measured
+                in production, and enforced automatically — because on the
+                modern web, performance is product quality. This site is built
+                to that standard, and its numbers are public.
               </p>
               <p className="text-base text-gray-600 dark:text-white/70">
                 <span className="font-semibold uppercase tracking-wider text-gray-500 dark:text-white/70">
                   Now:
                 </span>{" "}
-                rebuilding this site in public as its own performance case
-                study, and writing about what that surfaces —{" "}
+                writing about performance engineering, with this site as
+                the working case study —{" "}
                 <Link
                   href="/writing/how-this-site-loads-in-under-one-second/"
                   className="font-medium text-emerald-700 hover:underline dark:text-emerald-400"
@@ -119,8 +116,8 @@ export default function Home() {
               Get in touch
             </h2>
             <p className="mt-3 max-w-md text-base leading-relaxed text-gray-600 dark:text-white/80">
-              Performance audit, a slow app that needs a diagnosis, or just
-              want to talk shop about Core Web Vitals — my inbox is open.
+              Whether it&apos;s a platform to build, a performance problem
+              to solve, or a conversation worth having — my inbox is open.
             </p>
             <div className="mt-5">
               <CopyEmailButton />
